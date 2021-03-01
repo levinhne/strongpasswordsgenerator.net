@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="border-top bg-light">
                 <div className="text-secondary text-center pt-1 pb-2">
-                    Made with <span style={{ color: "#e25555", fontSize: "1.2em" }}>&#9829;</span> in Switzerland
+                    Made with <span style={{ color: "#e25555", fontSize: "1.2em" }}>&#9829;</span> by Strong Passwords Generator
                 </div>
             </div>
         </footer>
