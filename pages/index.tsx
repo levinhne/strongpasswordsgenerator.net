@@ -194,7 +194,7 @@ const HomePage: React.FC = () => {
                         <Row className="mb-3">
                             <label className="col-sm-6 text-white col-form-label">Exclude</label>
                             <div className="col-sm-6">
-                                <input className="form-control border-0" type="text" defaultValue="" value={generatorOption.exclude} onChange={(e) => onChange(e)} name="exclude" />
+                                <input className="form-control border-0" type="text" value={generatorOption.exclude} onChange={(e) => onChange(e)} name="exclude" />
                             </div>
                         </Row>
                         <Row>
