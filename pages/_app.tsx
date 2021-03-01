@@ -1,7 +1,5 @@
 import { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
-import Head from "next/head";
-import ReactGA from "react-ga";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 

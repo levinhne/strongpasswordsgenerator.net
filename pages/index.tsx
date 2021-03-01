@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ClipboardJS from "clipboard";
 import Image from "next/image";
-
+import ReactGA from "react-ga";
 import generator from "generate-password";
 import FileSaver from "file-saver";
 import { useRouter } from "next/router";
