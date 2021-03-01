@@ -12,7 +12,17 @@ export const pageConfig = {
         ],
         "image": "image.png",
         "schema": {
-            "@context": "http://schema.org/"
+            "@context": "http://schema.org/",
+            "@type": "Website",
+            "name": "Strong Random Password Generator",
+            "image": "https://strongpasswordsgenerator.net/image.png",
+            "url": "https://strongpasswordsgenerator.net/",
+            "description": "",
+            "isPartOf": {
+                "@type": "Website",
+                "name": "Strong Random Password Generator",
+                "url": "https://strongpasswordsgenerator.net/"
+            }
         }
     }
 };
