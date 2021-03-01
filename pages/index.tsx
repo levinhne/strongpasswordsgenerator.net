@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ClipboardJS from "clipboard";
 import Image from "next/image";
+
 import generator from "generate-password";
 import FileSaver from "file-saver";
 import { useRouter } from "next/router";
@@ -11,7 +12,8 @@ import {
     Tooltip,
     OverlayTrigger,
 } from "react-bootstrap-v5";
-import { route } from "next/dist/next-server/server/router";
+
+
 
 interface GenerateOptions {
     length: number;

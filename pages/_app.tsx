@@ -1,11 +1,15 @@
 import { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
+import Head from "next/head";
+import ReactGA from "react-ga";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 import "../styles/globals.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
+    ReactGA.initialize("G-SZM2QWC7T5");
+    ReactGA.pageview(window.location.pathname + window.location.search);
     return (
         <>
             <RecoilRoot>

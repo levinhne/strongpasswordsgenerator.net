@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
             <div className="border-top py-5 bg-light">
                 <Container>
                     <Row>
-                        <div className="col-md-8 offset-md-2">
+                        <div className="col-md-6 offset-md-3">
                             <p>
                                 <strong>Để giữ an toàn cho các mật khẩu và tài khoản trực tuyến của mình, bạn nên lưu ý:</strong>
                             </p>
