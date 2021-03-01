@@ -7,6 +7,7 @@ const PageHead: React.FC<any> = (pageConfig) => {
             <meta name="description" content={pageConfig["description"]} />
             <meta name="keywords" content={pageConfig["keywords"].join(", ")} />
             <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://strongpasswordsgenerator.net" />
             <meta property="og:site_name" content="strongpasswordsgenerator.net" />
             <meta property="og:title" content={pageConfig["title"]} />
             <meta property="og:description" content={pageConfig["description"]} />
