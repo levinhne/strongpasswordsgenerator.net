@@ -6,10 +6,13 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 import "../styles/globals.scss";
+import { useEffect } from "react";
 
 const App = ({ Component, pageProps }: AppProps) => {
-    ReactGA.initialize("G-SZM2QWC7T5");
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    useEffect(() => {
+        ReactGA.initialize("G-SZM2QWC7T5");
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
     return (
         <>
             <RecoilRoot>
