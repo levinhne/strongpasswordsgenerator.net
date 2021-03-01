@@ -255,16 +255,16 @@ const HomePage: React.FC = () => {
                                     </div>
                                     <div className="mt-3">
                                         <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-copy">{iconActions.clipboard.text}</Tooltip>}>
-                                            <Image className="icon-copy" role="button" onClick={handleCopy} src={"/" + iconActions.clipboard.icon} width={20} height={20} />
+                                            <Image className="icon-copy" role="button" onClick={handleCopy} src={"/" + iconActions.clipboard.icon} width={22} height={22} />
                                         </OverlayTrigger>
                                         <span className="px-4">
                                             <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-qrcode">Scan Qrcode</Tooltip>}>
-                                                <Image role="button" src={"/" + iconActions.scan} width={20} height={20} />
+                                                <Image role="button" src={"/" + iconActions.scan} width={22} height={22} />
                                             </OverlayTrigger>
                                         </span>
 
                                         <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-download">Download</Tooltip>}>
-                                            <Image role="button" onClick={handleDownload} src={"/" + iconActions.download} width={20} height={20} />
+                                            <Image role="button" onClick={handleDownload} src={"/" + iconActions.download} width={22} height={22} />
                                         </OverlayTrigger>
                                     </div>
                                 </div>
