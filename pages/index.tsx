@@ -5,15 +5,7 @@ import Image from "next/image";
 import generator from "generate-password";
 import FileSaver from "file-saver";
 import { useRouter } from "next/router";
-import {
-    Button,
-    Container,
-    Row,
-    Tooltip,
-    OverlayTrigger,
-} from "react-bootstrap-v5";
-
-
+import { Button, Container, Row, Tooltip, OverlayTrigger } from "react-bootstrap-v5";
 
 interface GenerateOptions {
     length: number;
@@ -69,10 +61,7 @@ const HomePage: React.FC = () => {
         const params = new URLSearchParams(Object(generatorOption));
         router.push("?" + params.toString(), undefined, { shallow: true });
         if (typeof window != "undefined") {
-            window.localStorage.setItem(
-                "generator_option",
-                JSON.stringify(generatorOption)
-            );
+            window.localStorage.setItem("generator_option", JSON.stringify(generatorOption));
         }
     };
 
@@ -101,34 +90,14 @@ const HomePage: React.FC = () => {
     };
 
     const handleDownload = (): void => {
-        var data = new Blob(
-            [
-                "// ==PasswordGenerator==\n",
-                "// Strong random password generator\n",
-                "// @webiste https://strongpasswordgenerator.com\n",
-                "// @params https://strongpasswordgenerator.com" +
-                    router.asPath +
-                    "\n",
-                "// @date " + new Date() + "\n",
-                "// ==PasswordGenerator==\n\n",
-                password,
-            ],
-            {
-                type: "text/plain;charset=utf-8",
-            }
-        );
+        var data = new Blob(["// ==PasswordGenerator==\n", "// Strong random password generator\n", "// @webiste https://strongpasswordgenerator.com\n", "// @params https://strongpasswordgenerator.com" + router.asPath + "\n", "// @date " + new Date() + "\n", "// ==PasswordGenerator==\n\n", password], {
+            type: "text/plain;charset=utf-8",
+        });
         const d = new Date();
         let year: string = String(d.getFullYear());
-        let month: string = String(
-            d.getMonth() + 1 < 10 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1
-        );
-        let day: string = String(
-            d.getDate() < 10 ? "0" + d.getDate() : d.getDate()
-        );
-        FileSaver.saveAs(
-            data,
-            "password-" + year + "-" + month + "-" + day + ".txt"
-        );
+        let month: string = String(d.getMonth() + 1 < 10 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1);
+        let day: string = String(d.getDate() < 10 ? "0" + d.getDate() : d.getDate());
+        FileSaver.saveAs(data, "password-" + year + "-" + month + "-" + day + ".txt");
         setIconActions({
             ...iconActions,
             download: "file-earmark-check.svg",
@@ -142,21 +111,16 @@ const HomePage: React.FC = () => {
     };
 
     useEffect(() => {
-        const localOption = JSON.parse(
-            window.localStorage.getItem("generator_option")
-        );
+        ReactGA.initialize("G-SZM2QWC7T5");
+        ReactGA.pageview(window.location.pathname + window.location.search);
+        const localOption = JSON.parse(window.localStorage.getItem("generator_option"));
         if (localOption) {
-            setGeneratorOption(
-                JSON.parse(window.localStorage.getItem("generator_option"))
-            );
+            setGeneratorOption(JSON.parse(window.localStorage.getItem("generator_option")));
         }
     }, []);
 
     return (
-        <section
-            className="py-5"
-            style={{ background: "linear-gradient(#614092, #7952b3)" }}
-        >
+        <section className="py-5" style={{ background: "linear-gradient(#614092, #7952b3)" }}>
             <Container>
                 <div className="row justify-content-md-center">
                     <div className="mb-4 text-light text-center">
@@ -164,35 +128,16 @@ const HomePage: React.FC = () => {
                     </div>
                     <div className="col-12 col-lg-6 mb-3">
                         <Row className="mb-3">
-                            <label className="col-sm-6 text-white col-form-label">
-                                Password Length
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Password Length</label>
                             <div className="col-sm-2">
-                                <input
-                                    type="number"
-                                    className="form-control border-0"
-                                    name="length"
-                                    min={6}
-                                    max={256}
-                                    defaultValue={6}
-                                    value={generatorOption.length}
-                                    onChange={(e) => onChange(e)}
-                                />
+                                <input type="number" className="form-control border-0" name="length" min={6} max={256} defaultValue={6} value={generatorOption.length} onChange={(e) => onChange(e)} />
                             </div>
                         </Row>
                         <Row className="mb-3">
-                            <label className="col-sm-6 text-white col-form-label">
-                                Include Symbols
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Include Symbols</label>
                             <div className="col-sm-6">
                                 <div className="form-check">
-                                    <input
-                                        className="form-check-input border-0"
-                                        type="checkbox"
-                                        checked={generatorOption.symbols}
-                                        onChange={(e) => onChange(e)}
-                                        name="symbols"
-                                    />
+                                    <input className="form-check-input border-0" type="checkbox" checked={generatorOption.symbols} onChange={(e) => onChange(e)} name="symbols" />
                                     <label className="form-check-label text-white">
                                         <em>(e.g. !@#$%^&*()+_-=...)</em>
                                     </label>
@@ -200,18 +145,10 @@ const HomePage: React.FC = () => {
                             </div>
                         </Row>
                         <Row className="mb-3">
-                            <label className="col-sm-6 text-white col-form-label">
-                                Include Numbers
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Include Numbers</label>
                             <div className="col-sm-6">
                                 <div className="form-check">
-                                    <input
-                                        className="form-check-input border-0"
-                                        type="checkbox"
-                                        checked={generatorOption.numbers}
-                                        onChange={(e) => onChange(e)}
-                                        name="numbers"
-                                    />
+                                    <input className="form-check-input border-0" type="checkbox" checked={generatorOption.numbers} onChange={(e) => onChange(e)} name="numbers" />
                                     <label className="form-check-label text-white">
                                         <em>(e.g. 123456...)</em>
                                     </label>
@@ -219,18 +156,10 @@ const HomePage: React.FC = () => {
                             </div>
                         </Row>
                         <Row className="mb-3">
-                            <label className="col-sm-6 text-white col-form-label">
-                                Include Lowercase Characters
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Include Lowercase Characters</label>
                             <div className="col-sm-6">
                                 <div className="form-check">
-                                    <input
-                                        className="form-check-input border-0"
-                                        type="checkbox"
-                                        checked={generatorOption.lowercase}
-                                        onChange={(e) => onChange(e)}
-                                        name="lowercase"
-                                    />
+                                    <input className="form-check-input border-0" type="checkbox" checked={generatorOption.lowercase} onChange={(e) => onChange(e)} name="lowercase" />
                                     <label className="form-check-label text-white">
                                         <em>(e.g. abcdefgh...)</em>
                                     </label>
@@ -238,18 +167,10 @@ const HomePage: React.FC = () => {
                             </div>
                         </Row>
                         <Row className="mb-3">
-                            <label className="col-sm-6 text-white col-form-label">
-                                Include Uppercase Characters
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Include Uppercase Characters</label>
                             <div className="col-sm-6">
                                 <div className="form-check">
-                                    <input
-                                        className="form-check-input border-0"
-                                        type="checkbox"
-                                        checked={generatorOption.uppercase}
-                                        onChange={(e) => onChange(e)}
-                                        name="uppercase"
-                                    />
+                                    <input className="form-check-input border-0" type="checkbox" checked={generatorOption.uppercase} onChange={(e) => onChange(e)} name="uppercase" />
                                     <label className="form-check-label text-white">
                                         <em>(e.g. ABCDEFGH...)</em>
                                     </label>
@@ -257,20 +178,10 @@ const HomePage: React.FC = () => {
                             </div>
                         </Row>
                         <Row className="mb-3">
-                            <label className="col-sm-6 text-white col-form-label">
-                                Exclude Similar Characters
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Exclude Similar Characters</label>
                             <div className="col-sm-6">
                                 <div className="form-check">
-                                    <input
-                                        className="form-check-input border-0"
-                                        type="checkbox"
-                                        checked={
-                                            generatorOption.excludeSimilarCharacters
-                                        }
-                                        onChange={(e) => onChange(e)}
-                                        name="excludeSimilarCharacters"
-                                    />
+                                    <input className="form-check-input border-0" type="checkbox" checked={generatorOption.excludeSimilarCharacters} onChange={(e) => onChange(e)} name="excludeSimilarCharacters" />
                                     <label className="form-check-label text-white">
                                         <em>(e.g. i, l, 1, L, o, 0, O...)</em>
                                     </label>
@@ -278,33 +189,16 @@ const HomePage: React.FC = () => {
                             </div>
                         </Row>
                         <Row className="mb-3">
-                            <label className="col-sm-6 text-white col-form-label">
-                                Exclude
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Exclude</label>
                             <div className="col-sm-6">
-                                <input
-                                    className="form-control border-0"
-                                    type="text"
-                                    defaultValue=""
-                                    value={generatorOption.exclude}
-                                    onChange={(e) => onChange(e)}
-                                    name="exclude"
-                                />
+                                <input className="form-control border-0" type="text" defaultValue="" value={generatorOption.exclude} onChange={(e) => onChange(e)} name="exclude" />
                             </div>
                         </Row>
                         <Row>
-                            <label className="col-sm-6 text-white col-form-label">
-                                Password Blur
-                            </label>
+                            <label className="col-sm-6 text-white col-form-label">Password Blur</label>
                             <div className="col-sm-6">
                                 <div className="form-check">
-                                    <input
-                                        className="form-check-input border-0"
-                                        type="checkbox"
-                                        checked={generatorOption.blur}
-                                        onChange={(e) => onChange(e)}
-                                        name="blur"
-                                    />
+                                    <input className="form-check-input border-0" type="checkbox" checked={generatorOption.blur} onChange={(e) => onChange(e)} name="blur" />
                                     <label className="form-check-label text-white">
                                         <em>
                                             (e.g. &nbsp;
@@ -346,67 +240,24 @@ const HomePage: React.FC = () => {
                                 >
                                     <div
                                         style={{
-                                            filter: generatorOption.blur
-                                                ? "blur(0.15rem)"
-                                                : "",
+                                            filter: generatorOption.blur ? "blur(0.15rem)" : "",
                                         }}
                                     >
                                         {password}
                                     </div>
                                 </div>
                                 <div className="mt-3">
-                                    <OverlayTrigger
-                                        placement="top"
-                                        overlay={
-                                            <Tooltip id="tooltip-copy">
-                                                {iconActions.clipboard.text}
-                                            </Tooltip>
-                                        }
-                                    >
-                                        <Image
-                                            className="icon-copy"
-                                            role="button"
-                                            onClick={handleCopy}
-                                            src={
-                                                "/" + iconActions.clipboard.icon
-                                            }
-                                            width={20}
-                                            height={20}
-                                        />
+                                    <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-copy">{iconActions.clipboard.text}</Tooltip>}>
+                                        <Image className="icon-copy" role="button" onClick={handleCopy} src={"/" + iconActions.clipboard.icon} width={20} height={20} />
                                     </OverlayTrigger>
                                     <span className="px-4">
-                                        <OverlayTrigger
-                                            placement="top"
-                                            overlay={
-                                                <Tooltip id="tooltip-qrcode">
-                                                    Scan Qrcode
-                                                </Tooltip>
-                                            }
-                                        >
-                                            <Image
-                                                role="button"
-                                                src={"/" + iconActions.scan}
-                                                width={20}
-                                                height={20}
-                                            />
+                                        <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-qrcode">Scan Qrcode</Tooltip>}>
+                                            <Image role="button" src={"/" + iconActions.scan} width={20} height={20} />
                                         </OverlayTrigger>
                                     </span>
 
-                                    <OverlayTrigger
-                                        placement="top"
-                                        overlay={
-                                            <Tooltip id="tooltip-download">
-                                                Download
-                                            </Tooltip>
-                                        }
-                                    >
-                                        <Image
-                                            role="button"
-                                            onClick={handleDownload}
-                                            src={"/" + iconActions.download}
-                                            width={20}
-                                            height={20}
-                                        />
+                                    <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-download">Download</Tooltip>}>
+                                        <Image role="button" onClick={handleDownload} src={"/" + iconActions.download} width={20} height={20} />
                                     </OverlayTrigger>
                                 </div>
                             </div>
@@ -414,11 +265,7 @@ const HomePage: React.FC = () => {
                             ""
                         )}
                         <div className="mt-4 text-center">
-                            <Button
-                                type="submit"
-                                className="btn btn-outline-light fw-bold px-3 py-2"
-                                onClick={handleGenerator}
-                            >
+                            <Button type="submit" className="btn btn-outline-light fw-bold px-3 py-2" onClick={handleGenerator}>
                                 Generator
                             </Button>
                         </div>
