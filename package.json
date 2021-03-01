@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "postbuild": "next-on-netlify"
+    "start": "next start"
   },
   "dependencies": {
     "bootstrap": "^5.0.0-beta1",
