@@ -10,7 +10,7 @@ export const pageConfig = {
             " secure password generator",
             " create password"," generate password"
         ],
-        "image": "",
+        "image": "image.png",
         "schema": {
             "@context": "http://schema.org/"
         }

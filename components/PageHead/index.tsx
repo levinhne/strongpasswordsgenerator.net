@@ -10,6 +10,7 @@ const PageHead: React.FC<any> = (pageConfig) => {
             <meta property="og:site_name" content="strongpasswordsgenerator.net" />
             <meta property="og:title" content={pageConfig["title"]} />
             <meta property="og:description" content={pageConfig["description"]} />
+            <meta property="og:image" content="https://strongpasswordsgenerator.net/image.png" />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
