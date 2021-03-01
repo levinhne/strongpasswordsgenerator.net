@@ -1,0 +1,15 @@
+$primary:#7952b3;
+$secondary:#868e96;
+$success:#28a745;
+$danger:#dc3545;
+$info:#17a2b8;
+$warning:#ffc107;
+$light:#f8f9fa;
+$dark:#343434;
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+@import "~bootstrap/scss/bootstrap";
