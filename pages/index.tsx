@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import ClipboardJS from "clipboard";
 import Image from "next/image";
-import ReactGA from "react-ga";
 import generator from "generate-password";
 import FileSaver from "file-saver";
 import { useRouter } from "next/router";
 import { Button, Container, Row, Tooltip, OverlayTrigger } from "react-bootstrap-v5";
+import GA4React from "ga-4-react";
 
 interface GenerateOptions {
     length: number;
@@ -111,12 +111,15 @@ const HomePage: React.FC = () => {
     };
 
     useEffect(() => {
-        ReactGA.initialize("G-SZM2QWC7T5");
-        ReactGA.pageview(window.location.pathname + window.location.search);
         const localOption = JSON.parse(window.localStorage.getItem("generator_option"));
         if (localOption) {
             setGeneratorOption(JSON.parse(window.localStorage.getItem("generator_option")));
         }
+        const ga4react = new GA4React("G-SZM2QWC7T5");
+        ga4react.initialize().then(
+            (ga4) => ga4.pageview(window.location.pathname + window.location.search),
+            (err) => console.error(err)
+        );
     }, []);
 
     return (
