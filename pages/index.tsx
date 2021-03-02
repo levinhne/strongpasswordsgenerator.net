@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
         lowercase: true,
         excludeSimilarCharacters: true,
         exclude: "",
-        blur: true,
+        blur: false,
     });
     const onChange = (e: any) => {
         switch (e.target.type) {
