@@ -152,7 +152,18 @@ const HomePage: React.FC = () => {
         }
 
         if (localOption) {
-            setGeneratorOption(localOption);
+            setGeneratorOption({
+                length: Number(localOption.length),
+                symbols: Boolean(localOption.symbols),
+                numbers: Boolean(localOption.numbers),
+                uppercase: Boolean(localOption.uppercase),
+                lowercase: Boolean(localOption.lowercase),
+                excludeSimilarCharacters: Boolean(
+                    localOption.excludeSimilarCharacters
+                ),
+                exclude: localOption.exclude,
+                blur: Boolean(localOption.blur),
+            });
         }
         const ga4react = new GA4React("G-SZM2QWC7T5");
         ga4react.initialize().then(
