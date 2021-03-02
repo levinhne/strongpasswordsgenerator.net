@@ -8,69 +8,68 @@ const Footer: React.FC = () => {
                 <Container>
                     <Row>
                         <div className="col-md-6 offset-md-3">
-                            <span>
+                            <p>
                                 <strong>
-                                    To ensure security for your passwords and
+                                    p To ensure security for your passwords and
                                     online accounts, please note that
                                 </strong>
-                            </span>
-                            <br />
-                            <span>
-                                1. Do not use the same or similar passwords,
+                            </p>
+
+                            <p>
+                                p. Do not use the same or similar passwords,
                                 security questions, and answers for multiple
                                 important accounts.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 2. Use a password of at least 16 characters, use
-                                at least one special symbol, one number, one
+                                pt least one special symbol, one number, one
                                 lowercase character, and one corresponding
                                 uppercase character.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 3. Do not use family names or friends' names in
                                 your password.
-                            </span>
-                            <br />
-                            <span>
-                                4. Do not use your date of birth, postal code,
+                            </p>
+
+                            <p>
+                                p. Do not use your date of birth, postal code,
                                 home number, and phone number to set your
                                 password.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 5. Do not use any words in the dictionary to set
                                 your password.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 6. Do not use anything copyable (that you cannot
                                 change) as passwords, such as fingerprints.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 7. Do not let your Web browsers (Firefox,
                                 Chrome, Safari, Opera, IE) save your passwords.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 8. Do not log in to important accounts on
-                                someone else's computer, or when the machine is
+                                pomeone else's computer, or when the machine is
                                 connected to a public Wi-Fi hotspot, Tor, free
                                 VPN, or web proxy.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 9. Send sensitive/important information online
                                 over encrypted connections like HTTPS and SFTP.
-                            </span>
-                            <br />
-                            <span>
+                            </p>
+
+                            <p>
                                 10. Install firewall software and virus software
                                 to protect your computer.
-                            </span>
-                            <br />
+                            </p>
                         </div>
                     </Row>
                 </Container>
