@@ -142,13 +142,17 @@ const HomePage: React.FC = () => {
     };
 
     useEffect(() => {
-        const localOption = JSON.parse(
-            window.localStorage.getItem("generator_option")
+        var localOption = Object.fromEntries(
+            new URLSearchParams(window.location.search)
         );
-        if (localOption) {
-            setGeneratorOption(
-                JSON.parse(window.localStorage.getItem("generator_option"))
+        if (router.asPath == "/") {
+            localOption = JSON.parse(
+                window.localStorage.getItem("generator_option")
             );
+        }
+
+        if (localOption) {
+            setGeneratorOption(localOption);
         }
         const ga4react = new GA4React("G-SZM2QWC7T5");
         ga4react.initialize().then(
@@ -188,105 +192,63 @@ const HomePage: React.FC = () => {
                                     />
                                 </div>
                             </Row>
-                            <Row className="mb-3">
-                                <label className="col-sm-6 text-white col-form-label">
-                                    Include Symbols
-                                </label>
-                                <div className="col-sm-6">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input border-0"
-                                            type="checkbox"
-                                            checked={generatorOption.symbols}
-                                            onChange={(e) => onChange(e)}
-                                            name="symbols"
-                                        />
-                                        <label className="form-check-label text-white">
-                                            <em>(e.g. !@#$%^&*()+_-=...)</em>
+                            {[
+                                {
+                                    label: "Include Symbols",
+                                    eg: "(e.g. !@#$%^&*()+_-=...)",
+                                    name: "symbols",
+                                    checked: generatorOption.symbols,
+                                },
+                                {
+                                    label: "Include Numbers",
+                                    eg: "(e.g. 123456...)",
+                                    name: "numbers",
+                                    checked: generatorOption.numbers,
+                                },
+                                {
+                                    label: "Include Lowercase Characters",
+                                    eg: "(e.g. abcdefgh...)",
+                                    name: "lowercase",
+                                    checked: generatorOption.lowercase,
+                                },
+                                {
+                                    label: "Include Uppercase Characters",
+                                    eg: "(e.g. ABCDEFGH...)",
+                                    name: "uppercase",
+                                    checked: generatorOption.uppercase,
+                                },
+                                {
+                                    label: "Exclude Similar Characters",
+                                    eg: " (e.g. i, l, 1, L, o, 0, O...)",
+                                    name: "excludeSimilarCharacters",
+                                    checked:
+                                        generatorOption.excludeSimilarCharacters,
+                                },
+                            ].map((item, key) => {
+                                return (
+                                    <Row className="mb-3" key={key}>
+                                        <label className="col-sm-6 text-white col-form-label">
+                                            {item.label}
                                         </label>
-                                    </div>
-                                </div>
-                            </Row>
-                            <Row className="mb-3">
-                                <label className="col-sm-6 text-white col-form-label">
-                                    Include Numbers
-                                </label>
-                                <div className="col-sm-6">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input border-0"
-                                            type="checkbox"
-                                            checked={generatorOption.numbers}
-                                            onChange={(e) => onChange(e)}
-                                            name="numbers"
-                                        />
-                                        <label className="form-check-label text-white">
-                                            <em>(e.g. 123456...)</em>
-                                        </label>
-                                    </div>
-                                </div>
-                            </Row>
-                            <Row className="mb-3">
-                                <label className="col-sm-6 text-white col-form-label">
-                                    Include Lowercase Characters
-                                </label>
-                                <div className="col-sm-6">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input border-0"
-                                            type="checkbox"
-                                            checked={generatorOption.lowercase}
-                                            onChange={(e) => onChange(e)}
-                                            name="lowercase"
-                                        />
-                                        <label className="form-check-label text-white">
-                                            <em>(e.g. abcdefgh...)</em>
-                                        </label>
-                                    </div>
-                                </div>
-                            </Row>
-                            <Row className="mb-3">
-                                <label className="col-sm-6 text-white col-form-label">
-                                    Include Uppercase Characters
-                                </label>
-                                <div className="col-sm-6">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input border-0"
-                                            type="checkbox"
-                                            checked={generatorOption.uppercase}
-                                            onChange={(e) => onChange(e)}
-                                            name="uppercase"
-                                        />
-                                        <label className="form-check-label text-white">
-                                            <em>(e.g. ABCDEFGH...)</em>
-                                        </label>
-                                    </div>
-                                </div>
-                            </Row>
-                            <Row className="mb-3">
-                                <label className="col-sm-6 text-white col-form-label">
-                                    Exclude Similar Characters
-                                </label>
-                                <div className="col-sm-6">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input border-0"
-                                            type="checkbox"
-                                            checked={
-                                                generatorOption.excludeSimilarCharacters
-                                            }
-                                            onChange={(e) => onChange(e)}
-                                            name="excludeSimilarCharacters"
-                                        />
-                                        <label className="form-check-label text-white">
-                                            <em>
-                                                (e.g. i, l, 1, L, o, 0, O...)
-                                            </em>
-                                        </label>
-                                    </div>
-                                </div>
-                            </Row>
+                                        <div className="col-sm-6">
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input border-0"
+                                                    type="checkbox"
+                                                    checked={item.checked}
+                                                    onChange={(e) =>
+                                                        onChange(e)
+                                                    }
+                                                    name={item.name}
+                                                />
+                                                <label className="form-check-label text-white">
+                                                    <em>{item.eg}</em>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </Row>
+                                );
+                            })}
                             <Row className="mb-3">
                                 <label className="col-sm-6 text-white col-form-label">
                                     Exclude
