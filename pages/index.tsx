@@ -298,7 +298,7 @@ const HomePage: React.FC = () => {
                                         value={generatorOption.exclude}
                                         onChange={(e) => onChange(e)}
                                         name="exclude"
-                                        placeholder="Characters to be excluded from password"
+                                        placeholder=""
                                     />
                                 </div>
                             </Row>
