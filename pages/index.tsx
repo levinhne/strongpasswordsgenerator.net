@@ -154,16 +154,21 @@ const HomePage: React.FC = () => {
         if (localOption) {
             setGeneratorOption({
                 length: Number(localOption.length),
-                symbols: Boolean(localOption.symbols),
-                numbers: Boolean(localOption.numbers),
-                uppercase: Boolean(localOption.uppercase),
-                lowercase: Boolean(localOption.lowercase),
-                excludeSimilarCharacters: Boolean(
-                    localOption.excludeSimilarCharacters
-                ),
+                symbols: localOption.symbols == "true" ? true : false,
+                numbers: localOption.numbers == "true" ? true : false,
+                uppercase: localOption.uppercase == "true" ? true : false,
+                lowercase: localOption.lowercase == "true" ? true : false,
+                excludeSimilarCharacters:
+                    localOption.excludeSimilarCharacters == "true"
+                        ? true
+                        : false,
                 exclude: localOption.exclude,
-                blur: Boolean(localOption.blur),
+                blur: localOption.blur == "true" ? true : false,
             });
+            window.localStorage.setItem(
+                "generator_option",
+                JSON.stringify(generatorOption)
+            );
         }
         const ga4react = new GA4React("G-SZM2QWC7T5");
         ga4react.initialize().then(
