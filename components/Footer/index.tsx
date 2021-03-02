@@ -8,58 +8,69 @@ const Footer: React.FC = () => {
                 <Container>
                     <Row>
                         <div className="col-md-6 offset-md-3">
-                            <p>
+                            <span>
                                 <strong>
                                     To ensure security for your passwords and
                                     online accounts, please note that
                                 </strong>
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 1. Do not use the same or similar passwords,
                                 security questions, and answers for multiple
                                 important accounts.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 2. Use a password of at least 16 characters, use
                                 at least one special symbol, one number, one
                                 lowercase character, and one corresponding
                                 uppercase character.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 3. Do not use family names or friends' names in
                                 your password.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 4. Do not use your date of birth, postal code,
                                 home number, and phone number to set your
                                 password.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 5. Do not use any words in the dictionary to set
                                 your password.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 6. Do not use anything copyable (that you cannot
                                 change) as passwords, such as fingerprints.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 7. Do not let your Web browsers (Firefox,
                                 Chrome, Safari, Opera, IE) save your passwords.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 8. Do not log in to important accounts on
                                 someone else's computer, or when the machine is
                                 connected to a public Wi-Fi hotspot, Tor, free
                                 VPN, or web proxy.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 9. Send sensitive/important information online
                                 over encrypted connections like HTTPS and SFTP.
-                            </p>
-                            <p>
+                            </span>
+                            <br/>
+                            <span>
                                 10. Install firewall software and virus software
                                 to protect your computer.
-                            </p>
+                            </span>
+                            <br/>
                         </div>
                     </Row>
                 </Container>
@@ -69,8 +80,8 @@ const Footer: React.FC = () => {
                     Built with{" "}
                     <span style={{ color: "#e25555", fontSize: "1.2em" }}>
                         &#9829;
-                    </span>{" "}
-                    by Strong Passwords Generator
+                    </spa/n
+                    <br></br> by Strong Passwords Generator
                 </div>
             </div>
         </footer>
