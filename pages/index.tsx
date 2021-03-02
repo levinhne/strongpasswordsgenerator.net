@@ -142,33 +142,12 @@ const HomePage: React.FC = () => {
     };
 
     useEffect(() => {
-        var localOption = Object.fromEntries(
-            new URLSearchParams(window.location.search)
+        const localOption = JSON.parse(
+            window.localStorage.getItem("generator_option")
         );
-        if (router.asPath == "/") {
-            localOption = JSON.parse(
-                window.localStorage.getItem("generator_option")
-            );
-        }
 
         if (localOption) {
-            setGeneratorOption({
-                length: Number(localOption.length),
-                symbols: localOption.symbols == "true" ? true : false,
-                numbers: localOption.numbers == "true" ? true : false,
-                uppercase: localOption.uppercase == "true" ? true : false,
-                lowercase: localOption.lowercase == "true" ? true : false,
-                excludeSimilarCharacters:
-                    localOption.excludeSimilarCharacters == "true"
-                        ? true
-                        : false,
-                exclude: localOption.exclude,
-                blur: localOption.blur == "true" ? true : false,
-            });
-            window.localStorage.setItem(
-                "generator_option",
-                JSON.stringify(generatorOption)
-            );
+            setGeneratorOption(localOption);
         }
         const ga4react = new GA4React("G-SZM2QWC7T5");
         ga4react.initialize().then(
