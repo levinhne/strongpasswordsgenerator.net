@@ -164,10 +164,6 @@ const HomePage: React.FC = () => {
                 exclude: localOption.exclude,
                 blur: Boolean(localOption.blur),
             });
-            window.localStorage.setItem(
-                "generator_option",
-                JSON.stringify(localOption)
-            );
         }
         const ga4react = new GA4React("G-SZM2QWC7T5");
         ga4react.initialize().then(
