@@ -5,7 +5,7 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="/">
+                    <Navbar.Brand href="/" title="Strong Passwords Generator">
                         Strong Passwords Generator
                     </Navbar.Brand>
                     {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
