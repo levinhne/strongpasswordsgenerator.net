@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
                     Built with{" "}
                     <span style={{ color: "#e25555", fontSize: "1.2em" }}>
                         &#9829;
-                    </span>
+                    </span>{" "}
                     by Strong Passwords Generator
                 </div>
             </div>
