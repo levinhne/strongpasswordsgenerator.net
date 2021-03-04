@@ -1,14 +1,15 @@
 export const pageConfig = {
     "home": {
-        "title": "Strong Random Password Generator",
-        "description": "Strong Random Password Generator",
+        "title": "Strong Random Passwords Generator",
+        "description": "Strong Random Passwords Generator",
         "keywords": [
-            "strong password generator",
-            " password generator",
+            "strong passwords generator",
+            "password generator",
             "online password generator",
-            " random password generator",
-            " secure password generator",
-            " create password"," generate password"
+            "random password generator",
+            "secure password generator",
+            "create password",
+            "generate password"
         ],
         "image": "image.png",
         "schema": {
