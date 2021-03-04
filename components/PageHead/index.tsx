@@ -6,12 +6,25 @@ const PageHead: React.FC<any> = (pageConfig) => {
             <title>{pageConfig["title"]}</title>
             <meta name="description" content={pageConfig["description"]} />
             <meta name="keywords" content={pageConfig["keywords"].join(", ")} />
+            <link rel="canonical" href="https://strongpasswordsgenerator.net" />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://strongpasswordsgenerator.net" />
-            <meta property="og:site_name" content="strongpasswordsgenerator.net" />
+            <meta
+                property="og:url"
+                content="https://strongpasswordsgenerator.net"
+            />
+            <meta
+                property="og:site_name"
+                content="strongpasswordsgenerator.net"
+            />
             <meta property="og:title" content={pageConfig["title"]} />
-            <meta property="og:description" content={pageConfig["description"]} />
-            <meta property="og:image" content="https://strongpasswordsgenerator.net/image.png" />
+            <meta
+                property="og:description"
+                content={pageConfig["description"]}
+            />
+            <meta
+                property="og:image"
+                content="https://strongpasswordsgenerator.net/image.png"
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
