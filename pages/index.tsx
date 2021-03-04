@@ -167,7 +167,7 @@ const HomePage: React.FC = () => {
                 <Container>
                     <div className="row justify-content-md-center">
                         <div className="mb-4 text-light text-center">
-                            <h1>Strong Random Password Generator</h1>
+                            <h1>Strong Random Passwords Generator</h1>
                         </div>
                         <div className="col-12 col-lg-6 mb-3">
                             <Row className="mb-3">
