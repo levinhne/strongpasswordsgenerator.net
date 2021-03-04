@@ -10,13 +10,13 @@ const Footer: React.FC = () => {
                         <div className="col-md-6 offset-md-3">
                             <p>
                                 <strong>
-                                    p To ensure security for your passwords and
+                                    To ensure security for your passwords and
                                     online accounts, please note that
                                 </strong>
                             </p>
 
                             <p>
-                                p. Do not use the same or similar passwords,
+                                1. Do not use the same or similar passwords,
                                 security questions, and answers for multiple
                                 important accounts.
                             </p>
