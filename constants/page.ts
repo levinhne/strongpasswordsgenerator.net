@@ -1,6 +1,6 @@
 export const pageConfig = {
     "home": {
-        "title": "Strong Random Passwords Generator",
+        "title": "Strong Passwords Generator",
         "description": "Strong Random Passwords Generator",
         "keywords": [
             "strong passwords generator",
