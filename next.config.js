@@ -6,6 +6,10 @@ module.exports = {
                 source: '/',
                 destination: '/generator',
             },
+            {
+                source: '/hash',
+                destination: '/hash/md5',
+            },
         ]
-      },
+    },
 };

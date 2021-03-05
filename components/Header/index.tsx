@@ -6,19 +6,28 @@ const Header = () => {
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                 <Container>
                     <Navbar.Brand href="/" title="Strong Passwords Generator">
-                        Strong Passwords Generator
+                        <strong>Strong Passwords Generator</strong>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <li className="nav-item">
                                 <Link href="/generator">
-                                    <a className="nav-link">Generator</a>
+                                    <a className="nav-link">
+                                        Password Generator
+                                    </a>
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link href="/validator">
-                                    <a className="nav-link">Validator</a>
+                                    <a className="nav-link">
+                                        Password Validator
+                                    </a>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link href="/hash">
+                                    <a className="nav-link">Hash Generator</a>
                                 </Link>
                             </li>
                             {/* <NavDropdown

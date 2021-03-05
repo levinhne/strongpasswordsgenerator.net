@@ -56,6 +56,11 @@ const GeneratorPage: React.FC = () => {
 
     const handleGenerator = (): void => {
         setPassword(generator.generate(generatorOption));
+        for (const [key, value] of Object.entries(generatorOption)) {
+            if (value == false || value == "") {
+                delete generatorOption[key];
+            }
+        }
         const params = new URLSearchParams(Object(generatorOption));
         router.push("?" + params.toString(), undefined, { shallow: true });
         if (typeof window != "undefined") {

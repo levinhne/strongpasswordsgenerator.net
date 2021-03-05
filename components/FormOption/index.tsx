@@ -1,13 +1,13 @@
 import { Row } from "react-bootstrap-v5";
 
 export type Options = {
-    length: number;
-    symbols: boolean;
-    numbers: boolean;
-    uppercase: boolean;
-    lowercase: boolean;
-    excludeSimilarCharacters: boolean;
-    exclude: string;
+    length?: number;
+    symbols?: boolean;
+    numbers?: boolean;
+    uppercase?: boolean;
+    lowercase?: boolean;
+    excludeSimilarCharacters?: boolean;
+    exclude?: string;
     blur?: boolean;
 };
 

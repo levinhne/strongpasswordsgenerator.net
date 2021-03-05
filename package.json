@@ -10,6 +10,7 @@
   "dependencies": {
     "bootstrap": "^5.0.0-beta1",
     "clipboard": "^2.0.6",
+    "crypto-js": "^4.0.0",
     "file-saver": "^2.0.5",
     "ga-4-react": "^0.1.28",
     "generate-password": "^1.6.0",
