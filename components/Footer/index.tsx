@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
             <div className="border-top py-5 bg-light">
                 <Container>
                     <Row>
-                        <div className="col-md-6 offset-md-3">
+                        <div className="col-lg-8 offset-lg-3">
                             <p>
                                 <strong>
                                     To ensure security for your passwords and

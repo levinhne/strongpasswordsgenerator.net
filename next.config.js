@@ -3,8 +3,8 @@ module.exports = {
     async rewrites() {
         return [
             {
-                source: '/password-generator',
-                destination: '/',
+                source: '/',
+                destination: '/generator',
             },
         ]
       },

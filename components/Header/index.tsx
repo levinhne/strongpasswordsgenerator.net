@@ -8,15 +8,20 @@ const Header = () => {
                     <Navbar.Brand href="/" title="Strong Passwords Generator">
                         Strong Passwords Generator
                     </Navbar.Brand>
-                    {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <li className="nav-item">
-                                <Link href="/formatter/html">
-                                    <a className="nav-link">Formatters</a>
+                                <Link href="/generator">
+                                    <a className="nav-link">Generator</a>
                                 </Link>
                             </li>
-                            <NavDropdown
+                            <li className="nav-item">
+                                <Link href="/validator">
+                                    <a className="nav-link">Validator</a>
+                                </Link>
+                            </li>
+                            {/* <NavDropdown
                                 title="Dropdown"
                                 id="collasible-nav-dropdown"
                             >
@@ -33,7 +38,7 @@ const Header = () => {
                                 <NavDropdown.Item href="#action/3.4">
                                     Separated link
                                 </NavDropdown.Item>
-                            </NavDropdown>
+                            </NavDropdown>*/}
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>
@@ -41,7 +46,7 @@ const Header = () => {
                                 Dank memes
                             </Nav.Link>
                         </Nav>
-                    </Navbar.Collapse> */}
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
         </>
