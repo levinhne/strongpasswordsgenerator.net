@@ -17,7 +17,6 @@ const pages = [
 ];
 const Header = () => {
     const router: NextRouter = useRouter();
-    console.log(router);
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">

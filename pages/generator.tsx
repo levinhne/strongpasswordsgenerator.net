@@ -3,7 +3,7 @@ import ClipboardJS from "clipboard";
 import Image from "next/image";
 import generator from "generate-password";
 import FileSaver from "file-saver";
-import { useRouter } from "next/router";
+import { useRouter, NextRouter } from "next/router";
 import {
     Button,
     Container,
@@ -16,7 +16,7 @@ import PageHead from "../components/PageHead";
 import { pageConfig } from "../constants/page";
 import FormOption, { FormOptionProps, Options } from "../components/FormOption";
 const GeneratorPage: React.FC = () => {
-    const router = useRouter();
+    const router: NextRouter = useRouter();
     const [password, setPassword] = useState<string>("");
     const [iconActions, setIconActions] = useState({
         clipboard: {

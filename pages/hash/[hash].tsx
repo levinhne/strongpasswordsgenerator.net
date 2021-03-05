@@ -1,13 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import CryptoJS from "crypto-js";
 import { Button, Container } from "react-bootstrap-v5";
+import { useRouter, NextRouter } from "next/router";
 
 const HashPage: React.FC = () => {
+    const router: NextRouter = useRouter();
+    const { hash } = router.query;
     const inputHashRef = useRef<HTMLInputElement>(null);
     const [hashFunction, setHashFunction] = useState<string>();
     const [hashResult, setHashResult] = useState<string>("");
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setHashFunction(e.target.value.replace("-", ""));
+        setHashFunction(e.target.value);
+        router.replace("/hash/" + e.target.value);
     };
 
     const handleHash = (): void => {
@@ -19,6 +23,10 @@ const HashPage: React.FC = () => {
             setHashResult(result.toString());
         }
     };
+
+    useEffect(() => {
+        setHashFunction(String(hash));
+    }, []);
 
     return (
         <section
@@ -39,6 +47,8 @@ const HashPage: React.FC = () => {
                         <div className="mt-2">
                             {["md5", "sha-1", "sha-256", "sha-512"].map(
                                 (value, i) => {
+                                    let checked =
+                                        hashFunction == value ? true : false;
                                     return (
                                         <div
                                             key={i}
@@ -49,6 +59,7 @@ const HashPage: React.FC = () => {
                                                 name="type"
                                                 type="radio"
                                                 value={value}
+                                                defaultChecked={checked}
                                                 onChange={(e) =>
                                                     handleOnChange(e)
                                                 }
@@ -98,7 +109,7 @@ const getHash = (
     func: string,
     str: string
 ): CryptoJS.lib.WordArray | undefined => {
-    switch (func) {
+    switch (func.replace("-", "")) {
         case "md5":
             return CryptoJS.MD5(str);
         case "sha1":
