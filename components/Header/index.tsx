@@ -1,6 +1,23 @@
 import Link from "next/link";
+import { useRouter, NextRouter } from "next/router";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap-v5";
+const pages = [
+    {
+        url: "/generator",
+        name: "Password Generator",
+    },
+    {
+        url: "/validator",
+        name: "Password Validator",
+    },
+    {
+        url: "/hash",
+        name: "Hash Generator",
+    },
+];
 const Header = () => {
+    const router: NextRouter = useRouter();
+    console.log(router);
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
@@ -11,25 +28,22 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <li className="nav-item">
-                                <Link href="/generator">
-                                    <a className="nav-link">
-                                        Password Generator
-                                    </a>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/validator">
-                                    <a className="nav-link">
-                                        Password Validator
-                                    </a>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/hash">
-                                    <a className="nav-link">Hash Generator</a>
-                                </Link>
-                            </li>
+                            {pages.map((page, i) => {
+                                let className = "nav-link";
+                                if (router.pathname.indexOf(page.url) > -1) {
+                                    className += " active";
+                                }
+                                console.log();
+                                return (
+                                    <li key={i} className="nav-item">
+                                        <Link href={page.url}>
+                                            <a className={className}>
+                                                {page.name}
+                                            </a>
+                                        </Link>
+                                    </li>
+                                );
+                            })}
                             {/* <NavDropdown
                                 title="Dropdown"
                                 id="collasible-nav-dropdown"
