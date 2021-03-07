@@ -3,16 +3,8 @@ import { useRouter, NextRouter } from "next/router";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap-v5";
 const pages = [
     {
-        url: "/generator",
-        name: "Password Generator",
-    },
-    {
-        url: "/validator",
+        url: "/password-validator",
         name: "Password Validator",
-    },
-    {
-        url: "/hash",
-        name: "Hash Generator",
     },
 ];
 const Header = () => {
@@ -21,8 +13,12 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="/" title="Strong Passwords Generator">
-                        <strong>Strong Passwords Generator</strong>
+                    <Navbar.Brand
+                        href="/"
+                        title="Strong Passwords Generator"
+                        className="fw-bolder"
+                    >
+                        Strong Passwords Generator
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -32,7 +28,6 @@ const Header = () => {
                                 if (router.pathname.indexOf(page.url) > -1) {
                                     className += " active";
                                 }
-                                console.log();
                                 return (
                                     <li key={i} className="nav-item">
                                         <Link href={page.url}>
@@ -43,24 +38,23 @@ const Header = () => {
                                     </li>
                                 );
                             })}
-                            {/* <NavDropdown
-                                title="Dropdown"
+                            <NavDropdown
+                                title="Hash Generator"
                                 id="collasible-nav-dropdown"
                             >
                                 <NavDropdown.Item href="#action/3.1">
-                                    Action
+                                    MD5 Generator
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
-                                    Another action
+                                    SHA-1 Generator
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">
-                                    Something
+                                    SHA-256 Generator
                                 </NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                    Separated link
+                                <NavDropdown.Item href="#action/3.3">
+                                    SHA-512 Generator
                                 </NavDropdown.Item>
-                            </NavDropdown>*/}
+                            </NavDropdown>
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>

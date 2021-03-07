@@ -3,18 +3,26 @@ import CryptoJS from "crypto-js";
 import { Button, Container } from "react-bootstrap-v5";
 import { useRouter, NextRouter } from "next/router";
 
+interface RouteQuery {
+    hash?: string;
+}
+
 const HashPage: React.FC = () => {
     const router: NextRouter = useRouter();
-    const { hash } = router.query;
+    const { hash }: RouteQuery = router.query;
     const inputHashRef = useRef<HTMLInputElement>(null);
-    const [hashFunction, setHashFunction] = useState<string>();
+    const [hashFunction, setHashFunction] = useState<string>("");
     const [hashResult, setHashResult] = useState<string>("");
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setHashFunction(e.target.value);
-        router.replace("/hash/" + e.target.value);
+        router.replace(e.target.value.replace("-", "") + "-hash-generator");
     };
 
     const handleHash = (): void => {
+        const value = String(inputHashRef.current?.value);
+        if (!value) {
+            return;
+        }
         const result = getHash(
             hashFunction,
             String(inputHashRef.current?.value)
@@ -25,8 +33,9 @@ const HashPage: React.FC = () => {
     };
 
     useEffect(() => {
-        setHashFunction(String(hash));
-    }, []);
+        if (!hash) return;
+        setHashFunction(hash.replace("-hash-generator", ""));
+    }, [hash]);
 
     return (
         <section
@@ -37,7 +46,9 @@ const HashPage: React.FC = () => {
                 <div className="row justify-content-md-center">
                     <div className="col-12 col-lg-6 mb-4">
                         <div className="text-light text-center mb-4">
-                            <h1>Hash Generator</h1>
+                            <h1>
+                                {hashFunction.toUpperCase() + " "}Hash Generator
+                            </h1>
                         </div>
                         <input
                             type="text"
@@ -48,7 +59,9 @@ const HashPage: React.FC = () => {
                             {["md5", "sha-1", "sha-256", "sha-512"].map(
                                 (value, i) => {
                                     let checked =
-                                        hashFunction == value ? true : false;
+                                        hashFunction == value.replace("-", "")
+                                            ? true
+                                            : false;
                                     return (
                                         <div
                                             key={i}
@@ -72,10 +85,8 @@ const HashPage: React.FC = () => {
                                 }
                             )}
                         </div>
-                    </div>
-                    {hashResult ? (
-                        <div className="col-12 col-lg-10 ">
-                            <div className="text-center text-light">
+                        {hashResult ? (
+                            <div className="text-center text-light mt-4">
                                 <div
                                     className="badge px-4 py-3 text-wrap text-break"
                                     style={{
@@ -86,18 +97,18 @@ const HashPage: React.FC = () => {
                                     {hashResult}
                                 </div>
                             </div>
+                        ) : (
+                            ""
+                        )}
+                        <div className="text-center mt-4">
+                            <Button
+                                type="submit"
+                                className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
+                                onClick={handleHash}
+                            >
+                                Generator
+                            </Button>
                         </div>
-                    ) : (
-                        ""
-                    )}
-                    <div className="text-center my-4">
-                        <Button
-                            type="submit"
-                            className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
-                            onClick={handleHash}
-                        >
-                            Generator
-                        </Button>
                     </div>
                 </div>
             </Container>

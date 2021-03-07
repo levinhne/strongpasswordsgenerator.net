@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                 </Container>
             </div>
             <div className="border-top bg-light">
-                <div className="text-secondary text-center pt-1 pb-2">
+                <div className="text-secondary text-center pt-2 pb-3">
                     Built with{" "}
                     <span style={{ color: "#e25555", fontSize: "1.2em" }}>
                         &#9829;
