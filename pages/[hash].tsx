@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import CryptoJS from "crypto-js";
-import Link from "next/link";
 import { Button, Container } from "react-bootstrap-v5";
 import { useRouter, NextRouter } from "next/router";
 
