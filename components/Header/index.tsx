@@ -6,6 +6,10 @@ const pages = [
         url: "/password-validator",
         name: "Password Validator",
     },
+    {
+        url: "/bcrypt-generator",
+        name: "Bcrypt Generator",
+    },
 ];
 const Header = () => {
     const router: NextRouter = useRouter();

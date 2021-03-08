@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import CryptoJS from "crypto-js";
+import Link from "next/link";
 import { Button, Container } from "react-bootstrap-v5";
 import { useRouter, NextRouter } from "next/router";
 
@@ -13,20 +14,13 @@ const HashPage: React.FC = () => {
     const inputHashRef = useRef<HTMLInputElement>(null);
     const [hashFunction, setHashFunction] = useState<string>("");
     const [hashResult, setHashResult] = useState<string>("");
-    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setHashFunction(e.target.value);
-        router.replace(e.target.value.replace("-", "") + "-hash-generator");
-    };
 
     const handleHash = (): void => {
         const value = String(inputHashRef.current?.value);
         if (!value) {
             return;
         }
-        const result = getHash(
-            hashFunction,
-            String(inputHashRef.current?.value)
-        );
+        const result = getHash(hashFunction, String(value));
         if (result != undefined) {
             setHashResult(result.toString());
         }
@@ -34,7 +28,9 @@ const HashPage: React.FC = () => {
 
     useEffect(() => {
         if (!hash) return;
-        setHashFunction(hash.replace("-hash-generator", ""));
+        setHashFunction(
+            hash.replace("-hash-generator", "").replace("sha", "sha-")
+        );
     }, [hash]);
 
     return (
@@ -47,40 +43,35 @@ const HashPage: React.FC = () => {
                     <div className="col-12 col-lg-6 mb-4">
                         <div className="text-light text-center mb-4">
                             <h1>
-                                {hashFunction.toUpperCase() + " "}Hash Generator
+                                {`${hashFunction.toUpperCase()} Hash Generator`}
                             </h1>
                         </div>
                         <input
                             type="text"
-                            className="form-control form-control-lg border-0"
+                            className="form-control form-control-lg border-0 mb-1"
                             ref={inputHashRef}
                         />
-                        <div className="mt-2">
+                        <div className="d-inline">
                             {["md5", "sha-1", "sha-256", "sha-512"].map(
                                 (value, i) => {
-                                    let checked =
-                                        hashFunction == value.replace("-", "")
-                                            ? true
-                                            : false;
+                                    let className =
+                                        "pe-3  text-white text-decoration-none fst-italic";
+                                    if (hashFunction == value) {
+                                        className += " fw-bolder";
+                                    }
+
                                     return (
-                                        <div
+                                        <Link
                                             key={i}
-                                            className="form-check form-check-inline"
+                                            href={`${value.replace(
+                                                "-",
+                                                ""
+                                            )}-hash-generator`}
                                         >
-                                            <input
-                                                className="form-check-input border-0"
-                                                name="type"
-                                                type="radio"
-                                                value={value}
-                                                defaultChecked={checked}
-                                                onChange={(e) =>
-                                                    handleOnChange(e)
-                                                }
-                                            />
-                                            <label className="form-check-label text-white">
+                                            <a className={className}>
                                                 {value.toLocaleUpperCase()}
-                                            </label>
-                                        </div>
+                                            </a>
+                                        </Link>
                                     );
                                 }
                             )}
