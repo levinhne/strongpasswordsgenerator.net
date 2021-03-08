@@ -33,29 +33,30 @@ const Header = () => {
                                     className += " active";
                                 }
                                 return (
-                                    <li key={i} className="nav-item">
-                                        <Link href={page.url}>
-                                            <a className={className}>
-                                                {page.name}
-                                            </a>
-                                        </Link>
-                                    </li>
+                                    <Nav.Item key={i}>
+                                        <Nav.Link
+                                            href={page.url}
+                                            className={className}
+                                        >
+                                            {page.name}
+                                        </Nav.Link>
+                                    </Nav.Item>
                                 );
                             })}
                             <NavDropdown
                                 title="Hash Generator"
                                 id="collasible-nav-dropdown"
                             >
-                                <NavDropdown.Item href="#action/3.1">
+                                <NavDropdown.Item href="/md5-hash-generator">
                                     MD5 Generator
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
+                                <NavDropdown.Item href="/sha1-hash-generator">
                                     SHA-1 Generator
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">
+                                <NavDropdown.Item href="/sha256-hash-generator">
                                     SHA-256 Generator
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">
+                                <NavDropdown.Item href="/sha512-hash-generator">
                                     SHA-512 Generator
                                 </NavDropdown.Item>
                             </NavDropdown>

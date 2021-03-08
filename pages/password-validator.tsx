@@ -93,37 +93,26 @@ const ValidatorPage: React.FC = () => {
             >
                 <Container>
                     <Row className="justify-content-md-center">
-                        <div className="mb-5 text-light text-center">
+                        <div className="mb-3 text-light text-center">
                             <h1>Strong Password Validator</h1>
                         </div>
-                        <div className="col-12 col-lg-6 mb-3">
+                        <div className="col-12 col-lg-5 mb-3">
                             <Form>
                                 <Row className="mb-4">
-                                    <label className="col-sm-5 text-white col-form-label">
-                                        Password
-                                    </label>
-                                    <div className="col-sm-7">
-                                        <input
-                                            className="form-control border-0"
-                                            type="text"
-                                            value={validatorOption.password}
-                                            placeholder=""
-                                            name="password"
-                                            onChange={(e) => handleChange(e)}
-                                        />
-                                    </div>
+                                    <input
+                                        className="form-control form-control-lg border-0"
+                                        type="text"
+                                        value={validatorOption.password}
+                                        placeholder=""
+                                        name="password"
+                                        onChange={(e) => handleChange(e)}
+                                    />
                                 </Row>
                                 <Row className="mb-3">
-                                    <label
-                                        className={
-                                            validatorResult.length
-                                                ? "col-sm-5 text-white col-form-label text-white"
-                                                : "col-sm-5 text-white col-form-label text-white fst-italic text-decoration-line-through"
-                                        }
-                                    >
+                                    <label className="col-sm-6 text-white col-form-label text-white">
                                         Password Length
                                     </label>
-                                    <div className="col-sm-2">
+                                    <div className="col-auto">
                                         <input
                                             type="number"
                                             className="form-control border-0"
@@ -142,41 +131,32 @@ const ValidatorPage: React.FC = () => {
                                         eg: "(e.g. !@#$%^&*()+_-=...)",
                                         name: "symbols",
                                         checked: validatorOption.symbols,
-                                        isValid: validatorResult.symbols,
                                     },
                                     {
                                         label: "Include Numbers",
                                         eg: "(e.g. 123456...)",
                                         name: "numbers",
                                         checked: validatorOption.numbers,
-                                        isValid: validatorResult.numbers,
                                     },
                                     {
                                         label: "Include Lowercase Characters",
                                         eg: "(e.g. abcdefgh...)",
                                         name: "lowercase",
                                         checked: validatorOption.lowercase,
-                                        isValid: validatorResult.lowercase,
                                     },
                                     {
                                         label: "Include Uppercase Characters",
                                         eg: "(e.g. ABCDEFGH...)",
                                         name: "uppercase",
                                         checked: validatorOption.uppercase,
-                                        isValid: validatorResult.uppercase,
                                     },
                                 ].map((item, key) => {
-                                    let className = "col-sm-5 text-white";
-                                    if (!item.isValid) {
-                                        className +=
-                                            " fst-italic text-decoration-line-through";
-                                    }
                                     return (
                                         <Row className="mb-3" key={key}>
-                                            <label className={className}>
+                                            <label className="col-sm-6 text-white col-form-label text-white">
                                                 {item.label}
                                             </label>
-                                            <div className="col-sm-7">
+                                            <div className="col-sm-6">
                                                 <Form.Check
                                                     className="border-0"
                                                     type="checkbox"

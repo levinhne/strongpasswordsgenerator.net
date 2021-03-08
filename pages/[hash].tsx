@@ -26,6 +26,11 @@ const HashPage: React.FC = () => {
         }
     };
 
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        setHashFunction(e.target.value);
+        router.replace(e.target.value.replace("-", "") + "-hash-generator");
+    };
+
     useEffect(() => {
         if (!hash) return;
         setHashFunction(
@@ -33,7 +38,7 @@ const HashPage: React.FC = () => {
         );
     }, [hash]);
 
-    return (
+    return hashFunction ? (
         <section
             className="py-5"
             style={{ background: "linear-gradient(#614092, #7952b3)" }}
@@ -46,35 +51,43 @@ const HashPage: React.FC = () => {
                                 {`${hashFunction.toUpperCase()} Hash Generator`}
                             </h1>
                         </div>
-                        <input
-                            type="text"
-                            className="form-control form-control-lg border-0 mb-1"
-                            ref={inputHashRef}
-                        />
-                        <div className="d-inline">
-                            {["md5", "sha-1", "sha-256", "sha-512"].map(
-                                (value, i) => {
-                                    let className =
-                                        "pe-3  text-white text-decoration-none fst-italic";
-                                    if (hashFunction == value) {
-                                        className += " fw-bolder";
-                                    }
-
-                                    return (
-                                        <Link
-                                            key={i}
-                                            href={`${value.replace(
-                                                "-",
-                                                ""
-                                            )}-hash-generator`}
-                                        >
-                                            <a className={className}>
-                                                {value.toLocaleUpperCase()}
-                                            </a>
-                                        </Link>
-                                    );
-                                }
-                            )}
+                        <div className="position-relative">
+                            <input
+                                type="text"
+                                className="form-control form-control-lg border-0 mb-1"
+                                ref={inputHashRef}
+                            />
+                            <div
+                                className="position-absolute"
+                                style={{
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    right: "10px",
+                                }}
+                            >
+                                <select
+                                    className="form-select"
+                                    onChange={(e) => handleChange(e)}
+                                >
+                                    {["md5", "sha-1", "sha-256", "sha-512"].map(
+                                        (value, i) => {
+                                            let selected = false;
+                                            if (hashFunction == value) {
+                                                selected = true;
+                                            }
+                                            return (
+                                                <option
+                                                    selected={selected}
+                                                    key={i}
+                                                    value={value}
+                                                >
+                                                    {value.toUpperCase()}
+                                                </option>
+                                            );
+                                        }
+                                    )}
+                                </select>
+                            </div>
                         </div>
                         {hashResult ? (
                             <div className="text-center text-light mt-4">
@@ -104,6 +117,8 @@ const HashPage: React.FC = () => {
                 </div>
             </Container>
         </section>
+    ) : (
+        <></>
     );
 };
 

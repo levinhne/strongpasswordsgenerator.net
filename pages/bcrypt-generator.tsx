@@ -19,7 +19,7 @@ const BcryptGeneratorPage: React.FC = () => {
     const [round, setRound] = useState<number>(12);
     const [hashResult, setHashResult] = useState<string>("");
 
-    const handleChange = (e: any): void => {
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         setRound(Number(e.target.value));
     };
 
@@ -58,7 +58,10 @@ const BcryptGeneratorPage: React.FC = () => {
                                     right: "10px",
                                 }}
                             >
-                                <select className="form-select border-primary">
+                                <select
+                                    className="form-select"
+                                    onChange={(e) => handleChange(e)}
+                                >
                                     {getRounds()}
                                 </select>
                             </div>
