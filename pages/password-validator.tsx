@@ -86,7 +86,7 @@ const ValidatorPage: React.FC = () => {
 
     return (
         <>
-            <PageHead {...pageConfig["home"]} />
+            <PageHead {...pageConfig["password_validator"]} />
             <section
                 className="py-5"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}

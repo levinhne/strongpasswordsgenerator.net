@@ -25,5 +25,30 @@ export const pageConfig = {
                 "url": "https://strongpasswordsgenerator.net/"
             }
         }
+    },
+    "password_validator": {
+        "title": "Strong Password Validator",
+        "description": "Strong Password Validator",
+        "keywords": [
+            "password validator",
+            "strong password validator",
+            "validator password online",
+            "validate password",
+            "check password",
+            "check password online"
+        ],
+        "image": "image.png",
+    },
+    "bcrypt_generator": {
+        "title": "Bcrypt Generator",
+        "description": "Bcrypt Generator",
+        "keywords": [
+            "bcrypt online",
+            "bcrypt",
+            "bcrypt generator",
+            "bcrypt decrypt",
+            "hash password online"
+        ],
+        "image": "image.png",
     }
 };
