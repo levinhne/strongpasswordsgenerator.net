@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter, NextRouter } from "next/router";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap-v5";
+import { useEffect } from "react";
+
 const pages = [
     {
         url: "/password-validator",
@@ -13,63 +14,94 @@ const pages = [
 ];
 const Header = () => {
     const router: NextRouter = useRouter();
+    useEffect(() => {
+        console.log("0000000000000");
+        import("bootstrap").then(({ Collapse }) => {
+            [].slice
+                .call(document.querySelectorAll(".collapse"))
+                .map(function (item) {
+                    return new Collapse(item, {
+                        toggle: false,
+                    });
+                });
+        });
+    }, []);
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
-                <Container>
-                    <Navbar.Brand
-                        href="/"
-                        title="Strong Passwords Generator"
-                        className="fw-bolder"
-                    >
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div className="container">
+                    <a className="navbar-brand fw-bold" href="/">
                         Strong Passwords Generator
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            {pages.map((page, i) => {
-                                let className = "nav-link";
-                                if (router.pathname.indexOf(page.url) > -1) {
-                                    className += " active";
-                                }
-                                return (
-                                    <Nav.Item key={i}>
-                                        <Nav.Link
-                                            href={page.url}
-                                            className={className}
-                                        >
-                                            {page.name}
-                                        </Nav.Link>
-                                    </Nav.Item>
-                                );
-                            })}
-                            <NavDropdown
-                                title="Hash Generator"
-                                id="collasible-nav-dropdown"
-                            >
-                                <NavDropdown.Item href="/md5-hash-generator">
-                                    MD5 Generator
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/sha1-hash-generator">
-                                    SHA-1 Generator
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/sha256-hash-generator">
-                                    SHA-256 Generator
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/sha512-hash-generator">
-                                    SHA-512 Generator
-                                </NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
-                        <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
-                            </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+                    </a>
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link href="/password-validator">
+                                    <a className="nav-link">
+                                        Password Validator
+                                    </a>
+                                </Link>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a
+                                    className="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Hash Generator
+                                </a>
+                                <ul
+                                    className="dropdown-menu"
+                                    aria-labelledby="navbarDropdown"
+                                >
+                                    {["md5", "sha-1", "sha-256", "sha-512"].map(
+                                        (hash, i) => {
+                                            return (
+                                                <>
+                                                    <li className="py-1">
+                                                        <Link
+                                                            href={`${hash.replace(
+                                                                "-",
+                                                                ""
+                                                            )}-hash-generator`}
+                                                        >
+                                                            <a
+                                                                className="dropdown-item"
+                                                                href="#"
+                                                            >
+                                                                {`${hash.toUpperCase()} Hash Generator`}
+                                                            </a>
+                                                        </Link>
+                                                    </li>
+                                                </>
+                                            );
+                                        }
+                                    )}
+                                </ul>
+                            </li>
+                            <li className="nav-item">
+                                <Link href="/bcrypt-generator">
+                                    <a className="nav-link">Bcrypt Generator</a>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </>
     );
 };

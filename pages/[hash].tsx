@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import CryptoJS from "crypto-js";
-import { Button, Container } from "react-bootstrap-v5";
 import { useRouter, NextRouter } from "next/router";
 
 interface RouteQuery {
@@ -42,7 +41,7 @@ const HashPage: React.FC = () => {
             className="py-5"
             style={{ background: "linear-gradient(#614092, #7952b3)" }}
         >
-            <Container>
+            <div className="container">
                 <div className="row justify-content-md-center">
                     <div className="col-12 col-lg-6 mb-4">
                         <div className="text-light text-center mb-4">
@@ -104,17 +103,17 @@ const HashPage: React.FC = () => {
                             ""
                         )}
                         <div className="text-center mt-4">
-                            <Button
+                            <button
                                 type="submit"
                                 className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
                                 onClick={handleHash}
                             >
                                 Generator
-                            </Button>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </Container>
+            </div>
         </section>
     ) : (
         <></>

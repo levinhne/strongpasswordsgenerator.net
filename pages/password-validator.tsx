@@ -69,6 +69,7 @@ const ValidatorPage: React.FC = () => {
         const results: string[] = schema.validate(validatorOption.password, {
             list: true,
         });
+        console.log(results);
         results.forEach((result) => {
             setValidatorResult({ ...validatorResult, [result]: false });
         });
@@ -86,112 +87,112 @@ const ValidatorPage: React.FC = () => {
 
     return (
         <>
-            <PageHead {...pageConfig["home"]} />
+            <PageHead {...pageConfig["password_validator"]} />
             <section
                 className="py-5"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}
             >
-                <Container>
-                    <Row className="justify-content-md-center">
+                <div className="container">
+                    <div className="row justify-content-md-center">
                         <div className="mb-3 text-light text-center">
                             <h1>Strong Password Validator</h1>
                         </div>
                         <div className="col-12 col-lg-5 mb-3">
-                            <Form>
-                                <Row className="mb-4">
+                            <div className="row mb-4">
+                                <input
+                                    className="form-control form-control-lg border-0"
+                                    type="text"
+                                    value={validatorOption.password}
+                                    placeholder=""
+                                    name="password"
+                                    onChange={(e) => handleChange(e)}
+                                />
+                            </div>
+                            <div className="row mb-3">
+                                <label className="col-sm-6 text-white col-form-label text-white">
+                                    Password Length
+                                </label>
+                                <div className="col-auto">
                                     <input
-                                        className="form-control form-control-lg border-0"
-                                        type="text"
-                                        value={validatorOption.password}
-                                        placeholder=""
-                                        name="password"
+                                        type="number"
+                                        className="form-control border-0"
+                                        name="length"
+                                        min={6}
+                                        max={256}
+                                        defaultValue={6}
+                                        value={validatorOption.length}
                                         onChange={(e) => handleChange(e)}
                                     />
-                                </Row>
-                                <Row className="mb-3">
-                                    <label className="col-sm-6 text-white col-form-label text-white">
-                                        Password Length
-                                    </label>
-                                    <div className="col-auto">
-                                        <input
-                                            type="number"
-                                            className="form-control border-0"
-                                            name="length"
-                                            min={6}
-                                            max={256}
-                                            defaultValue={6}
-                                            value={validatorOption.length}
-                                            onChange={(e) => handleChange(e)}
-                                        />
-                                    </div>
-                                </Row>
-                                {[
-                                    {
-                                        label: "Include Symbols",
-                                        eg: "(e.g. !@#$%^&*()+_-=...)",
-                                        name: "symbols",
-                                        checked: validatorOption.symbols,
-                                    },
-                                    {
-                                        label: "Include Numbers",
-                                        eg: "(e.g. 123456...)",
-                                        name: "numbers",
-                                        checked: validatorOption.numbers,
-                                    },
-                                    {
-                                        label: "Include Lowercase Characters",
-                                        eg: "(e.g. abcdefgh...)",
-                                        name: "lowercase",
-                                        checked: validatorOption.lowercase,
-                                    },
-                                    {
-                                        label: "Include Uppercase Characters",
-                                        eg: "(e.g. ABCDEFGH...)",
-                                        name: "uppercase",
-                                        checked: validatorOption.uppercase,
-                                    },
-                                ].map((item, key) => {
-                                    return (
-                                        <Row className="mb-3" key={key}>
-                                            <label className="col-sm-6 text-white col-form-label text-white">
-                                                {item.label}
-                                            </label>
-                                            <div className="col-sm-6">
-                                                <Form.Check
-                                                    className="border-0"
+                                </div>
+                            </div>
+                            {[
+                                {
+                                    label: "Include Symbols",
+                                    eg: "(e.g. !@#$%^&*()+_-=...)",
+                                    name: "symbols",
+                                    checked: validatorOption.symbols,
+                                },
+                                {
+                                    label: "Include Numbers",
+                                    eg: "(e.g. 123456...)",
+                                    name: "numbers",
+                                    checked: validatorOption.numbers,
+                                },
+                                {
+                                    label: "Include Lowercase Characters",
+                                    eg: "(e.g. abcdefgh...)",
+                                    name: "lowercase",
+                                    checked: validatorOption.lowercase,
+                                },
+                                {
+                                    label: "Include Uppercase Characters",
+                                    eg: "(e.g. ABCDEFGH...)",
+                                    name: "uppercase",
+                                    checked: validatorOption.uppercase,
+                                },
+                            ].map((item, key) => {
+                                return (
+                                    <div className="row mb-3" key={key}>
+                                        <label className="col-sm-6 text-white col-form-label text-white">
+                                            {item.label}
+                                        </label>
+                                        <div className="col-sm-6">
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input border-0"
                                                     type="checkbox"
-                                                    label={
-                                                        <label className="form-check-label text-white">
-                                                            <em>{item.eg}</em>
-                                                        </label>
-                                                    }
+                                                    value=""
+                                                    name={item.name}
+                                                    checked={item.checked}
                                                     onChange={(e) =>
                                                         handleChange(e)
                                                     }
-                                                    name={item.name}
-                                                    checked={item.checked}
                                                 />
+
+                                                <label className="form-check-label text-white">
+                                                    <em>{item.eg}</em>
+                                                </label>
                                             </div>
-                                        </Row>
-                                    );
-                                })}
-                                <div className="mt-4 text-center">
-                                    <Button
-                                        type="button"
-                                        className="btn btn-outline-light fw-bold px-3 py-2"
-                                        onClick={
-                                            validatorOption.password != ""
-                                                ? handleValidator
-                                                : null
-                                        }
-                                    >
-                                        Validator
-                                    </Button>
-                                </div>
-                            </Form>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                            <div className="mt-4 text-center">
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-light fw-bold px-3 py-2"
+                                    onClick={
+                                        validatorOption.password != ""
+                                            ? handleValidator
+                                            : null
+                                    }
+                                >
+                                    Validator
+                                </button>
+                            </div>
                         </div>
-                    </Row>
-                </Container>
+                    </div>
+                </div>
             </section>
         </>
     );

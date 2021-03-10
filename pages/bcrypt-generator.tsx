@@ -38,11 +38,11 @@ const BcryptGeneratorPage: React.FC = () => {
             className="py-5"
             style={{ background: "linear-gradient(#614092, #7952b3)" }}
         >
-            <Container>
+            <div className="container">
                 <div className="row justify-content-md-center">
                     <div className="col-lg-6 mb-4">
                         <div className="text-light text-center mb-4">
-                            <h1>Bcrypt Hash Generator</h1>
+                            <h1>Bcrypt Generator</h1>
                         </div>
                         <div className="position-relative">
                             <input
@@ -82,17 +82,17 @@ const BcryptGeneratorPage: React.FC = () => {
                             ""
                         )}
                         <div className="text-center mt-4">
-                            <Button
+                            <button
                                 type="submit"
                                 className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
                                 onClick={handleGenerator}
                             >
                                 Generator
-                            </Button>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </Container>
+            </div>
         </section>
     );
 };
