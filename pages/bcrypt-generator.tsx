@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Button, Container, Dropdown } from "react-bootstrap-v5";
 import bcrypt from "bcryptjs";
 import { pageConfig } from "../constants/page";
 
@@ -46,26 +45,6 @@ const BcryptGeneratorPage: React.FC = () => {
                             <h1>Bcrypt Generator</h1>
                         </div>
                         <div className="position-relative">
-                            <input
-                                type="text"
-                                className="form-control form-control-lg border-0 mb-2"
-                                ref={inputHashRef}
-                            />
-                            <div
-                                className="position-absolute"
-                                style={{
-                                    top: "50%",
-                                    transform: "translateY(-50%)",
-                                    right: "10px",
-                                }}
-                            >
-                                <select
-                                    className="form-select"
-                                    onChange={(e) => handleChange(e)}
-                                >
-                                    {getRounds()}
-                                </select>
-                            </div>
                             <div className="position-relative">
                                 <input
                                     type="text"
@@ -88,54 +67,20 @@ const BcryptGeneratorPage: React.FC = () => {
                                     </select>
                                 </div>
                             </div>
-<<<<<<< HEAD
-                        ) : (
-                            ""
-                        )}
-                        <div className="text-center mt-4">
-                            <button
-                                type="submit"
-                                className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
-                                onClick={handleGenerator}
-                            >
-                                Generator
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-=======
-                            {hashResult ? (
-                                <div className="text-center text-light mt-4">
-                                    <div
-                                        className="badge px-4 py-3 text-wrap text-break"
-                                        style={{
-                                            backgroundColor: "#65419a",
-                                            fontSize: "1.2em",
-                                        }}
-                                    >
-                                        {hashResult}
-                                    </div>
-                                </div>
-                            ) : (
-                                ""
-                            )}
                             <div className="text-center mt-4">
-                                <Button
+                                <button
                                     type="submit"
                                     className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
                                     onClick={handleGenerator}
                                 >
                                     Generator
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </div>
-                </Container>
-            </section>
-        </>
->>>>>>> 213d921465a64fcbbff609505b155ba09798f604
+                </div>
+            </div>
+        </section>
     );
 };
 
