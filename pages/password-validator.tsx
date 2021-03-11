@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import passwordValidator from "password-validator";
 import { GenerateOptions } from "generate-password";
 import { useRouter } from "next/router";
-import { Button, Container, Row, Form } from "react-bootstrap-v5";
 import PageHead from "../components/PageHead";
 import { pageConfig } from "../constants/page";
+import GA4React from "ga-4-react";
 
 interface ValidatorOptions extends GenerateOptions {
     password?: string;
@@ -76,13 +76,12 @@ const ValidatorPage: React.FC = () => {
     };
 
     useEffect(() => {
-        console.log(validatorResult);
-        // const ga4react = new GA4React("G-SZM2QWC7T5");
-        // ga4react.initialize().then(
-        //     (ga4) =>
-        //         ga4.pageview(window.location.pathname + window.location.search),
-        //     (err) => console.error(err)
-        // );
+        const ga4react = new GA4React("G-SZM2QWC7T5");
+        ga4react.initialize().then(
+            (ga4) =>
+                ga4.pageview(window.location.pathname + window.location.search),
+            (err) => console.error(err)
+        );
     }, [validatorResult]);
 
     return (
