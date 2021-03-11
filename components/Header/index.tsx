@@ -15,7 +15,6 @@ const pages = [
 const Header = () => {
     const router: NextRouter = useRouter();
     useEffect(() => {
-        console.log("0000000000000");
         import("bootstrap").then(({ Collapse }) => {
             [].slice
                 .call(document.querySelectorAll(".collapse"))
