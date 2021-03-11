@@ -78,22 +78,6 @@ const Footer: React.FC = () => {
                 style={{ backgroundColor: "#f8f9fa !important" }}
             >
                 <div className="container">
-                    <ul className="ps-0 mb-3">
-                        <li className="d-inline-block">
-                            <a href="https://github.com/twbs">GitHub</a>
-                        </li>
-                        <li className="d-inline-block ms-3">
-                            <a href="https://twitter.com/getbootstrap">
-                                Twitter
-                            </a>
-                        </li>
-                        <li className="d-inline-block ms-3">
-                            <a href="/docs/5.0/examples/">Examples</a>
-                        </li>
-                        <li className="d-inline-block ms-3">
-                            <a href="/docs/5.0/about/overview/">About</a>
-                        </li>
-                    </ul>
                     <p className="mb-0">
                         Built with{" "}
                         <span style={{ color: "#e25555", fontSize: "1.2em" }}>
