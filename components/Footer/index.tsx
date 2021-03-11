@@ -1,12 +1,11 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap-v5";
 
 const Footer: React.FC = () => {
     return (
         <footer className="">
             <div className="border-top py-5 bg-light">
-                <Container>
-                    <Row>
+                <div className="container">
+                    <div className="row">
                         <div className="col-lg-8 offset-lg-3">
                             <p>
                                 <strong>
@@ -71,18 +70,39 @@ const Footer: React.FC = () => {
                                 to protect your computer.
                             </p>
                         </div>
-                    </Row>
-                </Container>
-            </div>
-            <div className="border-top bg-light">
-                <div className="text-secondary text-center pt-2 pb-3">
-                    Built with{" "}
-                    <span style={{ color: "#e25555", fontSize: "1.2em" }}>
-                        &#9829;
-                    </span>{" "}
-                    by Strong Passwords Generator
+                    </div>
                 </div>
             </div>
+            <footer
+                className="p-3 p-md-5 text-center text-sm-start"
+                style={{ backgroundColor: "#f8f9fa !important" }}
+            >
+                <div className="container">
+                    <ul className="ps-0 mb-3">
+                        <li className="d-inline-block">
+                            <a href="https://github.com/twbs">GitHub</a>
+                        </li>
+                        <li className="d-inline-block ms-3">
+                            <a href="https://twitter.com/getbootstrap">
+                                Twitter
+                            </a>
+                        </li>
+                        <li className="d-inline-block ms-3">
+                            <a href="/docs/5.0/examples/">Examples</a>
+                        </li>
+                        <li className="d-inline-block ms-3">
+                            <a href="/docs/5.0/about/overview/">About</a>
+                        </li>
+                    </ul>
+                    <p className="mb-0">
+                        Built with{" "}
+                        <span style={{ color: "#e25555", fontSize: "1.2em" }}>
+                            &#9829;
+                        </span>{" "}
+                        by Strong Passwords Generator.
+                    </p>
+                </div>
+            </footer>
         </footer>
     );
 };
