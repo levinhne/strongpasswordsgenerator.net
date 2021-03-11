@@ -70,6 +70,21 @@ const BcryptGeneratorPage: React.FC = () => {
                                         </select>
                                     </div>
                                 </div>
+                                {hashResult ? (
+                                    <div className="text-center text-light mt-4">
+                                        <div
+                                            className="badge px-4 py-3 text-wrap text-break"
+                                            style={{
+                                                backgroundColor: "#65419a",
+                                                fontSize: "1.2em",
+                                            }}
+                                        >
+                                            {hashResult}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
                                 <div className="text-center mt-4">
                                     <button
                                         type="submit"
