@@ -68,7 +68,7 @@ const GeneratorPage: React.FC = () => {
         }
     };
 
-    const handleCopy = () => {
+    const handleCopy = (): any => {
         new ClipboardJS(".icon-copy", {
             text: (): any => {
                 setIconActions({
