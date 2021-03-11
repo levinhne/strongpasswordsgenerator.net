@@ -68,9 +68,9 @@ const GeneratorPage: React.FC = () => {
         }
     };
 
-    const handleCopy = (): any => {
+    const handleCopy = () => {
         new ClipboardJS(".icon-copy", {
-            text: (): any => {
+            text: String(() => {
                 setIconActions({
                     ...iconActions,
                     clipboard: {
@@ -88,7 +88,7 @@ const GeneratorPage: React.FC = () => {
                     });
                 }, 5000);
                 return password;
-            },
+            }),
         });
     };
 
