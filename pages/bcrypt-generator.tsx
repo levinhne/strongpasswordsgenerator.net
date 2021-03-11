@@ -36,7 +36,7 @@ const BcryptGeneratorPage: React.FC = () => {
 
     return (
         <>
-            <PageHead {...pageConfig["password_validator"]} />
+            <PageHead {...pageConfig["bcrypt_generator"]} />
             <section
                 className="py-5"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}
