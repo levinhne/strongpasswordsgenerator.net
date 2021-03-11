@@ -69,27 +69,27 @@ const GeneratorPage: React.FC = () => {
     };
 
     const handleCopy = () => {
-        new ClipboardJS(".icon-copy", {
-            text: String((): string => {
-                setIconActions({
-                    ...iconActions,
-                    clipboard: {
-                        text: "Copied!",
-                        icon: "clipboard-check.svg",
-                    },
-                });
-                setTimeout(() => {
-                    setIconActions({
-                        ...iconActions,
-                        clipboard: {
-                            text: "Copy to clipboard",
-                            icon: "clipboard.svg",
-                        },
-                    });
-                }, 5000);
-                return password;
-            }),
-        });
+        // new ClipboardJS(".icon-copy", {
+        //     text: String((): string => {
+        //         setIconActions({
+        //             ...iconActions,
+        //             clipboard: {
+        //                 text: "Copied!",
+        //                 icon: "clipboard-check.svg",
+        //             },
+        //         });
+        //         setTimeout(() => {
+        //             setIconActions({
+        //                 ...iconActions,
+        //                 clipboard: {
+        //                     text: "Copy to clipboard",
+        //                     icon: "clipboard.svg",
+        //                 },
+        //             });
+        //         }, 5000);
+        //         return password;
+        //     }),
+        // });
     };
 
     const handleDownload = (): void => {
