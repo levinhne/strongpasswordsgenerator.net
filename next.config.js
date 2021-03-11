@@ -2,10 +2,14 @@ module.exports = {
     target: 'serverless',
     async rewrites() {
         return [
-            {
-                source: '/password-generator',
-                destination: '/',
-            },
+            // {
+            //     source: '/',
+            //     destination: '/generator',
+            // },
+            // {
+            //     source: '/hash',
+            //     destination: '/hash/md5',
+            // },
         ]
-      },
+    },
 };
