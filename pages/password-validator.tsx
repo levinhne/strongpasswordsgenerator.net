@@ -77,11 +77,11 @@ const ValidatorPage: React.FC = () => {
 
     useEffect(() => {
         const ga4react = new GA4React("G-SZM2QWC7T5");
-        ga4react.initialize().then(
-            (ga4) =>
-                ga4.pageview(window.location.pathname + window.location.search),
-            (err) => console.error(err)
-        );
+        // ga4react.initialize().then(
+        //     (ga4) =>
+        //         ga4.pageview(window.location.pathname + window.location.search),
+        //     (err) => console.error(err)
+        // );
     }, [validatorResult]);
 
     return (
