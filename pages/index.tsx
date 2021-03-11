@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import ClipboardJS from "clipboard";
+import ClipboardJS from "clipboard";
 import Image from "next/image";
 import generator from "generate-password";
 import FileSaver from "file-saver";
@@ -69,27 +69,27 @@ const GeneratorPage: React.FC = () => {
     };
 
     const handleCopy = () => {
-        // new ClipboardJS(".icon-copy", {
-        //     text: String((): string => {
-        //         setIconActions({
-        //             ...iconActions,
-        //             clipboard: {
-        //                 text: "Copied!",
-        //                 icon: "clipboard-check.svg",
-        //             },
-        //         });
-        //         setTimeout(() => {
-        //             setIconActions({
-        //                 ...iconActions,
-        //                 clipboard: {
-        //                     text: "Copy to clipboard",
-        //                     icon: "clipboard.svg",
-        //                 },
-        //             });
-        //         }, 5000);
-        //         return password;
-        //     }),
-        // });
+        new ClipboardJS(".icon-copy", {
+            text: (): string => {
+                setIconActions({
+                    ...iconActions,
+                    clipboard: {
+                        text: "Copied!",
+                        icon: "clipboard-check.svg",
+                    },
+                });
+                setTimeout(() => {
+                    setIconActions({
+                        ...iconActions,
+                        clipboard: {
+                            text: "Copy to clipboard",
+                            icon: "clipboard.svg",
+                        },
+                    });
+                }, 5000);
+                return password;
+            },
+        });
     };
 
     const handleDownload = (): void => {
@@ -141,12 +141,12 @@ const GeneratorPage: React.FC = () => {
         if (localOption) {
             setGeneratorOption(localOption);
         }
-        // const ga4react = new GA4React("G-SZM2QWC7T5");
-        // ga4react.initialize().then(
-        //     (ga4) =>
-        //         ga4.pageview(window.location.pathname + window.location.search),
-        //     (err) => console.error(err)
-        // );
+        const ga4react = new GA4React("G-SZM2QWC7T5");
+        ga4react.initialize().then(
+            (ga4) =>
+                ga4.pageview(window.location.pathname + window.location.search),
+            (err) => console.error(err)
+        );
     }, []);
 
     return (
