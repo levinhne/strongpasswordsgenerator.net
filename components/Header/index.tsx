@@ -73,15 +73,12 @@ const Header = () => {
                                                 <>
                                                     <li className="py-1">
                                                         <Link
-                                                            href={`${hash.replace(
+                                                            href={`/${hash.replace(
                                                                 "-",
                                                                 ""
                                                             )}-hash-generator`}
                                                         >
-                                                            <a
-                                                                className="dropdown-item"
-                                                                href="#"
-                                                            >
+                                                            <a className="dropdown-item">
                                                                 {`${hash.toUpperCase()} Hash Generator`}
                                                             </a>
                                                         </Link>
