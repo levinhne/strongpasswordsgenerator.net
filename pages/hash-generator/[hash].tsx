@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import CryptoJS from "crypto-js";
 import { useRouter, NextRouter } from "next/router";
+import { pageConfig } from "../../constants/page";
 
 interface RouteQuery {
     hash?: string;
@@ -26,7 +27,9 @@ const HashPage: React.FC = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         setHashFunction(e.target.value);
-        router.replace(e.target.value.replace("-", "") + "-hash-generator");
+        router.replace(
+            "/" + e.target.value.replace("-", "") + "-hash-generator"
+        );
     };
 
     useEffect(() => {

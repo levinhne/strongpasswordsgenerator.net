@@ -26,6 +26,35 @@ export const pageConfig = {
             }
         }
     },
+    "hash": {
+        "md5": {
+            "title": "Online generator MD5 hash",
+            "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-256, SHA-512",
+            "keywords": [
+                "md5",
+                "md5 online",
+                "md5 generator",
+                "online md5",
+                "md5 hash",
+                "md5 string",
+                "create md5"
+            ],
+            "image": "image.png",
+            "schema": {
+                "@context": "http://schema.org/",
+                "@type": "Website",
+                "name": "Online generator MD5 hash",
+                "image": "https://strongpasswordsgenerator.net/image.png",
+                "url": "https://strongpasswordsgenerator.net/md5-hash-generator",
+                "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-256, SHA-512",
+                "isPartOf": {
+                    "@type": "Website",
+                    "name": "Online generator MD5 hash",
+                    "url": "https://strongpasswordsgenerator.net/md5-hash-generator"
+                }
+            }
+        }
+    },
     "password_validator": {
         "title": "Strong Password Validator",
         "description": "Strong Password Validator simply measures the strength of a password, based on specific indicators to have a secure password such as password length, uppercase, lowercase, number, symbols...",
@@ -40,7 +69,7 @@ export const pageConfig = {
         "image": "image.png",
     },
     "bcrypt_generator": {
-        "title": "Bcrypt Hash Generator",
+        "title": "Online Bcrypt Hash Generator",
         "description": "This online tool allows you to generate the Bcrypt hash of any string. You can get dozens of other hashes such as MD5, SHA-1, SHA-256, SHA-512...",
         "keywords": [
             "bcrypt online",
@@ -51,5 +80,18 @@ export const pageConfig = {
             "hash password online"
         ],
         "image": "image.png",
+        "schema": {
+            "@context": "http://schema.org/",
+            "@type": "Website",
+            "name": "Online Bcrypt Hash Generator",
+            "image": "https://strongpasswordsgenerator.net/image.png",
+            "url": "https://strongpasswordsgenerator.net/bcrypt-generator",
+            "description": "This online tool allows you to generate the Bcrypt hash of any string. You can get dozens of other hashes such as MD5, SHA-1, SHA-256, SHA-512...",
+            "isPartOf": {
+                "@type": "Website",
+                "name": "Online generator MD5 hash",
+                "url": "https://strongpasswordsgenerator.net/bcrypt-generator"
+            }
+        }
     }
 };
