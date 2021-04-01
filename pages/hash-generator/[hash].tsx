@@ -4,13 +4,9 @@ import { useRouter, NextRouter } from "next/router";
 import { pageConfig } from "../../constants/page";
 import PageHead from "../../components/PageHead";
 
-interface RouteQuery {
-    hash?: string;
-}
-
-const HashPage: React.FC<any> = ({ c }) => {
+const HashPage: React.FC<any> = ({ hash }) => {
     const router: NextRouter = useRouter();
-    const hash = c;
+    const { query } = router.query;
     const inputHashRef = useRef<HTMLInputElement>(null);
     const [hashFunction, setHashFunction] = useState<string>(hash);
     const [hashResult, setHashResult] = useState<string>("");
@@ -32,6 +28,13 @@ const HashPage: React.FC<any> = ({ c }) => {
             "/" + e.target.value.replace("-", "") + "-hash-generator"
         );
     };
+
+    useEffect(() => {
+        if (!query) return;
+        setHashFunction(
+            String(query).replace("-hash-generator", "").replace("sha", "sha-")
+        );
+    }, [query]);
 
     return hashFunction ? (
         <>
@@ -73,7 +76,10 @@ const HashPage: React.FC<any> = ({ c }) => {
                                             "sha-512",
                                         ].map((value, i) => {
                                             let selected = false;
-                                            if (hashFunction == value) {
+                                            if (
+                                                hashFunction ==
+                                                value.replace("-", "")
+                                            ) {
                                                 selected = true;
                                             }
                                             return (
@@ -142,9 +148,9 @@ const getHash = (
 };
 
 export const getServerSideProps = async ({ params }) => {
-    const c = params.hash;
+    const hash = params.hash;
     return {
-        props: { c },
+        props: { hash },
     };
 };
 
