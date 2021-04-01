@@ -53,6 +53,87 @@ export const pageConfig = {
                     "url": "https://strongpasswordsgenerator.net/md5-hash-generator"
                 }
             }
+        },
+        "sha1": {
+            "title": "Online generator MD5 hash",
+            "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-256, SHA-512",
+            "keywords": [
+                "md5",
+                "md5 online",
+                "md5 generator",
+                "online md5",
+                "md5 hash",
+                "md5 string",
+                "create md5"
+            ],
+            "image": "image.png",
+            "schema": {
+                "@context": "http://schema.org/",
+                "@type": "Website",
+                "name": "Online generator MD5 hash",
+                "image": "https://strongpasswordsgenerator.net/image.png",
+                "url": "https://strongpasswordsgenerator.net/sha1-hash-generator",
+                "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-256, SHA-512",
+                "isPartOf": {
+                    "@type": "Website",
+                    "name": "Online generator MD5 hash",
+                    "url": "https://strongpasswordsgenerator.net/sha1-hash-generator"
+                }
+            }
+        },
+        "sha256": {
+            "title": "Online generator MD5 hash",
+            "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-256, SHA-512",
+            "keywords": [
+                "md5",
+                "md5 online",
+                "md5 generator",
+                "online md5",
+                "md5 hash",
+                "md5 string",
+                "create md5"
+            ],
+            "image": "image.png",
+            "schema": {
+                "@context": "http://schema.org/",
+                "@type": "Website",
+                "name": "Online generator MD5 hash",
+                "image": "https://strongpasswordsgenerator.net/image.png",
+                "url": "https://strongpasswordsgenerator.net/sha256-hash-generator",
+                "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-256, SHA-512",
+                "isPartOf": {
+                    "@type": "Website",
+                    "name": "Online generator MD5 hash",
+                    "url": "https://strongpasswordsgenerator.net/sha256-hash-generator"
+                }
+            }
+        },
+        "sha512": {
+            "title": "Online generator MD5 hash",
+            "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-256, SHA-512",
+            "keywords": [
+                "md5",
+                "md5 online",
+                "md5 generator",
+                "online md5",
+                "md5 hash",
+                "md5 string",
+                "create md5"
+            ],
+            "image": "image.png",
+            "schema": {
+                "@context": "http://schema.org/",
+                "@type": "Website",
+                "name": "Online generator MD5 hash",
+                "image": "https://strongpasswordsgenerator.net/image.png",
+                "url": "https://strongpasswordsgenerator.net/sha512-hash-generator",
+                "description": "This online tool allows you to generate the MD5 hash of any string. You can get dozens of other hashes such as SHA-1, SHA-512, SHA-512",
+                "isPartOf": {
+                    "@type": "Website",
+                    "name": "Online generator MD5 hash",
+                    "url": "https://strongpasswordsgenerator.net/sha512-hash-generator"
+                }
+            }
         }
     },
     "password_validator": {
