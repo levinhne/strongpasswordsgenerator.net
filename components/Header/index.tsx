@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useRouter, NextRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -46,11 +45,12 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link href="/password-validator">
-                                    <a className="nav-link">
-                                        Password Validator
-                                    </a>
-                                </Link>
+                                <a
+                                    className="nav-link"
+                                    href="/password-validator"
+                                >
+                                    Password Validator
+                                </a>
                             </li>
                             <li className="nav-item dropdown">
                                 <a
@@ -72,16 +72,15 @@ const Header = () => {
                                             return (
                                                 <>
                                                     <li className="py-1">
-                                                        <Link
+                                                        <a
+                                                            className="dropdown-item"
                                                             href={`/${hash.replace(
                                                                 "-",
                                                                 ""
                                                             )}-hash-generator`}
                                                         >
-                                                            <a className="dropdown-item">
-                                                                {`${hash.toUpperCase()} Hash Generator`}
-                                                            </a>
-                                                        </Link>
+                                                            {`${hash.toUpperCase()} Hash Generator`}
+                                                        </a>
                                                     </li>
                                                 </>
                                             );
@@ -90,9 +89,12 @@ const Header = () => {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <Link href="/bcrypt-generator">
-                                    <a className="nav-link">Bcrypt Generator</a>
-                                </Link>
+                                <a
+                                    className="nav-link"
+                                    href="/bcrypt-generator"
+                                >
+                                    Bcrypt Generator
+                                </a>
                             </li>
                         </ul>
                     </div>
