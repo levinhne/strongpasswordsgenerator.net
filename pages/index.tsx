@@ -141,12 +141,12 @@ const GeneratorPage: React.FC = () => {
         if (localOption) {
             setGeneratorOption(localOption);
         }
-        const ga4react = new GA4React("G-SZM2QWC7T5");
-        ga4react.initialize().then(
-            (ga4) =>
-                ga4.pageview(window.location.pathname + window.location.search),
-            (err) => console.error(err)
-        );
+        // const ga4react = new GA4React("G-SZM2QWC7T5");
+        // ga4react.initialize().then(
+        //     (ga4) =>
+        //         ga4.pageview(window.location.pathname + window.location.search),
+        //     (err) => console.error(err)
+        // );
     }, []);
 
     return (
@@ -332,7 +332,7 @@ const GeneratorPage: React.FC = () => {
                             <div className="mt-4 text-center">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-light fw-bold px-3 py-2"
+                                    className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
                                     onClick={handleGenerator}
                                 >
                                     Generator

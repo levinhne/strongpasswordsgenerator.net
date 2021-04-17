@@ -1,11 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import bcrypt from "bcryptjs";
 import { pageConfig } from "../constants/page";
 import PageHead from "../components/PageHead";
-
-interface RouteQuery {
-    hash?: string;
-}
 
 const getRounds = () => {
     const rounds = [];
@@ -17,7 +13,7 @@ const getRounds = () => {
 
 const BcryptGeneratorPage: React.FC = () => {
     const inputHashRef = useRef<HTMLInputElement>(null);
-    const [round, setRound] = useState<number>(12);
+    const [round, setRound] = useState<number>(10);
     const [hashResult, setHashResult] = useState<string>("");
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
@@ -29,8 +25,8 @@ const BcryptGeneratorPage: React.FC = () => {
         if (!value) {
             return;
         }
-        var salt = bcrypt.genSaltSync(round);
-        var hash = bcrypt.hashSync(value, salt);
+        const salt = bcrypt.genSaltSync(round);
+        const hash = bcrypt.hashSync(value, salt);
         setHashResult(hash);
     };
 
@@ -45,7 +41,7 @@ const BcryptGeneratorPage: React.FC = () => {
                     <div className="row justify-content-md-center">
                         <div className="col-lg-6 mb-4">
                             <div className="text-light text-center mb-4">
-                                <h1>Bcrypt Generator</h1>
+                                <h1>Bcrypt Hash Generator</h1>
                             </div>
                             <div className="position-relative">
                                 <div className="position-relative">

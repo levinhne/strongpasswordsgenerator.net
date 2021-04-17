@@ -164,13 +164,13 @@ export const pageConfig = {
         "schema": {
             "@context": "http://schema.org/",
             "@type": "Website",
-            "name": "Online Bcrypt Hash Generator",
+            "name": "Bcrypt Hash Generator",
             "image": "https://strongpasswordsgenerator.net/image.png",
             "url": "https://strongpasswordsgenerator.net/bcrypt-generator",
             "description": "This online tool allows you to generate the Bcrypt hash of any string. You can get dozens of other hashes such as MD5, SHA-1, SHA-256, SHA-512...",
             "isPartOf": {
                 "@type": "Website",
-                "name": "Online generator MD5 hash",
+                "name": "Bcrypt Hash Generator",
                 "url": "https://strongpasswordsgenerator.net/bcrypt-generator"
             }
         }

@@ -45,7 +45,7 @@ const HashPage: React.FC<any> = ({ hash }) => {
             >
                 <div className="container">
                     <div className="row justify-content-md-center">
-                        <div className="col-12 col-lg-6 mb-4">
+                        <div className="col-12 col-lg-7 mb-4">
                             <div className="text-light text-center mb-4">
                                 <h1>
                                     {`${hashFunction.toUpperCase()} Hash Generator`}

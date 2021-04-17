@@ -10,12 +10,25 @@ interface ValidatorOptions extends GenerateOptions {
     password?: string;
 }
 
-interface ValidatorResult extends Omit<GenerateOptions, "length"> {
-    length?: boolean;
-}
+const getValidResultMessage = (results: string[]): string => {
+    let message: string = "";
+    if (results.length == 0) {
+        message = "Password is valid.";
+    } else {
+        const index = results.indexOf("min");
+        if (index !== -1) {
+            results[index] = "length";
+        }
+        message = results.join(", ");
+        message =
+            message.charAt(0).toUpperCase() +
+            message.slice(1) +
+            " is not valid.";
+    }
+    return message;
+};
 
 const ValidatorPage: React.FC = () => {
-    const router = useRouter();
     const [validatorOption, setValidatorOption] = useState<ValidatorOptions>({
         password: "",
         length: 6,
@@ -25,13 +38,7 @@ const ValidatorPage: React.FC = () => {
         lowercase: true,
     });
 
-    const [validatorResult, setValidatorResult] = useState<ValidatorResult>({
-        length: true,
-        symbols: true,
-        numbers: true,
-        uppercase: true,
-        lowercase: true,
-    });
+    const [validatorResult, setValidatorResult] = useState<string[]>([]);
 
     const handleChange = (e: any) => {
         switch (e.target.type) {
@@ -69,19 +76,16 @@ const ValidatorPage: React.FC = () => {
         const results: string[] = schema.validate(validatorOption.password, {
             list: true,
         });
-        console.log(results);
-        results.forEach((result) => {
-            setValidatorResult({ ...validatorResult, [result]: false });
-        });
+        setValidatorResult(results);
     };
 
     useEffect(() => {
-        const ga4react = new GA4React("G-SZM2QWC7T5");
-        ga4react.initialize().then(
-            (ga4) =>
-                ga4.pageview(window.location.pathname + window.location.search),
-            (err) => console.error(err)
-        );
+        // const ga4react = new GA4React("G-SZM2QWC7T5");
+        // ga4react.initialize().then(
+        //     (ga4) =>
+        //         ga4.pageview(window.location.pathname + window.location.search),
+        //     (err) => console.error(err)
+        // );
     }, [validatorResult]);
 
     return (
@@ -96,7 +100,7 @@ const ValidatorPage: React.FC = () => {
                         <div className="mb-3 text-light text-center">
                             <h1>Strong Password Validator</h1>
                         </div>
-                        <div className="col-12 col-lg-5 mb-3">
+                        <div className="col-12 col-lg-6 mb-3">
                             <div className="row mb-4">
                                 <input
                                     className="form-control form-control-lg border-0"
@@ -106,6 +110,16 @@ const ValidatorPage: React.FC = () => {
                                     name="password"
                                     onChange={(e) => handleChange(e)}
                                 />
+                                <div
+                                    className={
+                                        validatorResult.length == 0
+                                            ? "form-text text-success fst-italic mb-2"
+                                            : "form-text text-danger fst-italic mb-2"
+                                    }
+                                    style={{ marginLeft: "-10px" }}
+                                >
+                                    {getValidResultMessage(validatorResult)}
+                                </div>
                             </div>
                             <div className="row mb-3">
                                 <label className="col-sm-6 text-white col-form-label text-white">
@@ -179,7 +193,7 @@ const ValidatorPage: React.FC = () => {
                             <div className="mt-4 text-center">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-light fw-bold px-3 py-2"
+                                    className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
                                     onClick={
                                         validatorOption.password != ""
                                             ? handleValidator

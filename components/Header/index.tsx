@@ -67,6 +67,11 @@ const Header = () => {
                                     className="dropdown-menu"
                                     aria-labelledby="navbarDropdown"
                                 >
+                                    <li>
+                                        <h5 className="dropdown-header">
+                                            HASH GENERATOR
+                                        </h5>
+                                    </li>
                                     {["md5", "sha-1", "sha-256", "sha-512"].map(
                                         (hash, i) => {
                                             return (
@@ -86,6 +91,11 @@ const Header = () => {
                                             );
                                         }
                                     )}
+                                    <li>
+                                        <h5 className="dropdown-header">
+                                            HMAC GENERATOR
+                                        </h5>
+                                    </li>
                                 </ul>
                             </li>
                             <li className="nav-item">
@@ -94,6 +104,14 @@ const Header = () => {
                                     href="/bcrypt-generator"
                                 >
                                     Bcrypt Generator
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link"
+                                    href="/wordpress-generator"
+                                >
+                                    Wordpress Generator
                                 </a>
                             </li>
                         </ul>
