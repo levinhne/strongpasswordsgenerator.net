@@ -23,7 +23,7 @@ const getPageHead = (pageHead: any, hash: string) => {
         hashList.splice(index, 1);
     }
     pageHead = pageHead.replace(/\{hashName\}/g, hash.toUpperCase());
-    pageHead = pageHead.replaceAll(
+    pageHead = pageHead.replace(
         /\{hashList\}/g,
         hashList.join(", ").toUpperCase()
     );
