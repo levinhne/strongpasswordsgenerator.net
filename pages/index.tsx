@@ -4,7 +4,6 @@ import Image from "next/image";
 import generator from "generate-password";
 import FileSaver from "file-saver";
 import { useRouter, NextRouter } from "next/router";
-import GA4React from "ga-4-react";
 import PageHead from "../components/PageHead";
 import { pageConfig } from "../constants/page";
 
