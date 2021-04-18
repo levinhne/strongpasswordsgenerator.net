@@ -32,7 +32,6 @@ const getPageHead = (pageHead: any, hash: string) => {
 
 const HashPage: React.FC<any> = ({ hash }) => {
     const router: NextRouter = useRouter();
-    const { query } = router.query;
     const inputHashRef = useRef<HTMLInputElement>(null);
     const [hashFunction, setHashFunction] = useState<string>(hash);
     const [hashResult, setHashResult] = useState<string>("");
@@ -56,11 +55,8 @@ const HashPage: React.FC<any> = ({ hash }) => {
     };
 
     useEffect(() => {
-        if (!query) return;
-        setHashFunction(
-            String(query).replace("-hash-generator", "").replace("sha", "sha-")
-        );
-    }, [query]);
+        setHashFunction(String(router.query.hash));
+    }, [router.query]);
 
     return hashFunction ? (
         <>
