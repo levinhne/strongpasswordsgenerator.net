@@ -2,7 +2,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 const client = axios.create({
-    baseURL: "https://strongpasswordsgenerator.net/api",
+    baseURL: "http://strongpasswordsgenerator.net/api",
     headers: {
         "content-type": "application/json"
     },

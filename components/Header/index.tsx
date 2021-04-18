@@ -1,5 +1,6 @@
 import { useRouter, NextRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import Link from "next/link";
 
 const pages = [
     {
@@ -29,9 +30,11 @@ const Header: React.FC = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container">
-                    <a className="navbar-brand fw-bold" href="/">
-                        Strong Passwords Generator
-                    </a>
+                    <Link href="/">
+                        <a className="navbar-brand fw-bold">
+                            Strong Passwords Generator
+                        </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -46,16 +49,18 @@ const Header: React.FC = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item ">
-                                <a
-                                    className={
-                                        router.asPath == "/password-validator"
-                                            ? "nav-link active"
-                                            : "nav-link"
-                                    }
-                                    href="/password-validator"
-                                >
-                                    Password Validator
-                                </a>
+                                <Link href="/password-validator">
+                                    <a
+                                        className={
+                                            router.asPath ==
+                                            "/password-validator"
+                                                ? "nav-link active"
+                                                : "nav-link"
+                                        }
+                                    >
+                                        Password Validator
+                                    </a>
+                                </Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <a
@@ -85,23 +90,26 @@ const Header: React.FC = () => {
                                                         key={i}
                                                         className="py-1"
                                                     >
-                                                        <a
-                                                            className={
-                                                                router.asPath ==
-                                                                `/${hash.replace(
-                                                                    "-",
-                                                                    ""
-                                                                )}-hash-generator`
-                                                                    ? "dropdown-item active"
-                                                                    : "dropdown-item"
-                                                            }
+                                                        <Link
                                                             href={`/${hash.replace(
                                                                 "-",
                                                                 ""
                                                             )}-hash-generator`}
                                                         >
-                                                            {`${hash.toUpperCase()} Hash Generator`}
-                                                        </a>
+                                                            <a
+                                                                className={
+                                                                    router.asPath ==
+                                                                    `/${hash.replace(
+                                                                        "-",
+                                                                        ""
+                                                                    )}-hash-generator`
+                                                                        ? "dropdown-item active"
+                                                                        : "dropdown-item"
+                                                                }
+                                                            >
+                                                                {`${hash.toUpperCase()} Hash Generator`}
+                                                            </a>
+                                                        </Link>
                                                     </li>
                                                 </>
                                             );
@@ -115,28 +123,32 @@ const Header: React.FC = () => {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a
-                                    className={
-                                        router.asPath == "/bcrypt-generator"
-                                            ? "nav-link active"
-                                            : "nav-link"
-                                    }
-                                    href="/bcrypt-generator"
-                                >
-                                    Bcrypt Generator
-                                </a>
+                                <Link href="/bcrypt-generator">
+                                    <a
+                                        className={
+                                            router.asPath == "/bcrypt-generator"
+                                                ? "nav-link active"
+                                                : "nav-link"
+                                        }
+                                    >
+                                        Bcrypt Generator
+                                    </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a
-                                    className={
-                                        router.asPath == "/wordpress-generator"
-                                            ? "nav-link active"
-                                            : "nav-link"
-                                    }
-                                    href="/wordpress-generator"
-                                >
-                                    Wordpress Generator
-                                </a>
+                                <Link href="/wordpress-generator">
+                                    <a
+                                        className={
+                                            router.asPath ==
+                                            "/wordpress-generator"
+                                                ? "nav-link active"
+                                                : "nav-link"
+                                        }
+                                        href="/wordpress-generator"
+                                    >
+                                        Wordpress Generator
+                                    </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

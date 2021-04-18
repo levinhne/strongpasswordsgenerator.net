@@ -4,7 +4,6 @@ import { GenerateOptions } from "generate-password";
 import { useRouter } from "next/router";
 import PageHead from "../components/PageHead";
 import { pageConfig } from "../constants/page";
-import GA4React from "ga-4-react";
 
 interface ValidatorOptions extends GenerateOptions {
     password?: string;

@@ -6,7 +6,9 @@ import PageHead from "../components/PageHead";
 const getRounds = () => {
     const rounds = [];
     for (let i = 1; i <= 18; i++) {
-        rounds.push(<option value={i} selected>{`Rounds ${i}`}</option>);
+        rounds.push(
+            <option key={i} value={i} selected>{`Rounds ${i}`}</option>
+        );
     }
     return rounds;
 };
