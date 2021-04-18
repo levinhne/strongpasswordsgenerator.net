@@ -4,6 +4,17 @@ import { useRouter, NextRouter } from "next/router";
 import { pageConfig } from "../../constants/page";
 import PageHead from "../../components/PageHead";
 
+const hashMap = new Map([
+    ["md5", CryptoJS.MD5],
+    ["sha1", CryptoJS.SHA1],
+    ["sha224", CryptoJS.SHA224],
+    ["sha256", CryptoJS.SHA256],
+    ["sha3", CryptoJS.SHA3],
+    ["sha384", CryptoJS.SHA384],
+    ["sha512", CryptoJS.SHA512],
+    ["ripemd160", CryptoJS.RIPEMD160],
+]);
+
 const getPageHead = (pageHead: any, hash: string) => {
     pageHead = JSON.stringify(pageHead);
     const hashList = Array.from(hashMap.keys());
@@ -151,16 +162,5 @@ export const getServerSideProps = async ({ params }) => {
         props: { hash },
     };
 };
-
-const hashMap = new Map([
-    ["md5", CryptoJS.MD5],
-    ["sha1", CryptoJS.SHA1],
-    ["sha224", CryptoJS.SHA224],
-    ["sha256", CryptoJS.SHA256],
-    ["sha3", CryptoJS.SHA3],
-    ["sha384", CryptoJS.SHA384],
-    ["sha512", CryptoJS.SHA512],
-    ["ripemd160", CryptoJS.RIPEMD160],
-]);
 
 export default HashPage;
