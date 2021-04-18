@@ -1,5 +1,5 @@
 import { useRouter, NextRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const pages = [
     {
@@ -24,6 +24,7 @@ const Header: React.FC = () => {
                 });
         });
     }, []);
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -44,9 +45,13 @@ const Header: React.FC = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
+                            <li className="nav-item ">
                                 <a
-                                    className="nav-link"
+                                    className={
+                                        router.asPath == "/password-validator"
+                                            ? "nav-link active"
+                                            : "nav-link"
+                                    }
                                     href="/password-validator"
                                 >
                                     Password Validator
@@ -81,7 +86,15 @@ const Header: React.FC = () => {
                                                         className="py-1"
                                                     >
                                                         <a
-                                                            className="dropdown-item"
+                                                            className={
+                                                                router.asPath ==
+                                                                `/${hash.replace(
+                                                                    "-",
+                                                                    ""
+                                                                )}-hash-generator`
+                                                                    ? "dropdown-item active"
+                                                                    : "dropdown-item"
+                                                            }
                                                             href={`/${hash.replace(
                                                                 "-",
                                                                 ""
@@ -103,7 +116,11 @@ const Header: React.FC = () => {
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="nav-link"
+                                    className={
+                                        router.asPath == "/bcrypt-generator"
+                                            ? "nav-link active"
+                                            : "nav-link"
+                                    }
                                     href="/bcrypt-generator"
                                 >
                                     Bcrypt Generator
@@ -111,7 +128,11 @@ const Header: React.FC = () => {
                             </li>
                             <li className="nav-item">
                                 <a
-                                    className="nav-link"
+                                    className={
+                                        router.asPath == "/wordpress-generator"
+                                            ? "nav-link active"
+                                            : "nav-link"
+                                    }
                                     href="/wordpress-generator"
                                 >
                                     Wordpress Generator
