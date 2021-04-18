@@ -53,6 +53,7 @@ export const pageConfig = {
             }
         }
     },
+    
     "password_validator": {
         "title": "Strong Password Validator",
         "description": "Strong Password Validator simply measures the strength of a password, based on specific indicators to have a secure password such as password length, uppercase, lowercase, number, symbols...",
