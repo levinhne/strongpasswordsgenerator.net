@@ -182,6 +182,11 @@
   resolved "https://registry.yarnpkg.com/@types/clipboard/-/clipboard-2.0.1.tgz#75a74086c293d75b12bc93ff13bc7797fef05a40"
   integrity sha512-gJJX9Jjdt3bIAePQRRjYWG20dIhAgEqonguyHxXuqALxsoDsDLimihqrSg8fXgVTJ4KZCzkfglKtwsh/8dLfbA==
 
+"@types/crypto-js@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/crypto-js/-/crypto-js-4.0.1.tgz#3a4bd24518b0e6c5940da4e2659eeb2ef0806963"
+  integrity sha512-6+OPzqhKX/cx5xh+yO8Cqg3u3alrkhoxhE5ZOdSEv0DOzJ13lwJ6laqGU0Kv6+XDMFmlnGId04LtY22PsFLQUw==
+
 "@types/jquery@*":
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.5.tgz#2c63f47c9c8d96693d272f5453602afd8338c903"

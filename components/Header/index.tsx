@@ -11,7 +11,7 @@ const pages = [
         name: "Bcrypt Generator",
     },
 ];
-const Header = () => {
+const Header: React.FC = () => {
     const router: NextRouter = useRouter();
     useEffect(() => {
         import("bootstrap").then(({ Collapse }) => {
@@ -76,7 +76,10 @@ const Header = () => {
                                         (hash, i) => {
                                             return (
                                                 <>
-                                                    <li className="py-1">
+                                                    <li
+                                                        key={i}
+                                                        className="py-1"
+                                                    >
                                                         <a
                                                             className="dropdown-item"
                                                             href={`/${hash.replace(
@@ -91,11 +94,11 @@ const Header = () => {
                                             );
                                         }
                                     )}
-                                    <li>
+                                    {/* <li>
                                         <h5 className="dropdown-header">
                                             HMAC GENERATOR
                                         </h5>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </li>
                             <li className="nav-item">

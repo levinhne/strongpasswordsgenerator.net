@@ -4,6 +4,21 @@ import { useRouter, NextRouter } from "next/router";
 import { pageConfig } from "../../constants/page";
 import PageHead from "../../components/PageHead";
 
+const getPageHead = (pageHead: any, hash: string) => {
+    pageHead = JSON.stringify(pageHead);
+    const hashList = Array.from(hashMap.keys());
+    const index = hashList.indexOf(hash);
+    if (index > -1) {
+        hashList.splice(index, 1);
+    }
+    pageHead = pageHead.replaceAll("{hashName}", hash.toUpperCase());
+    pageHead = pageHead.replaceAll(
+        "{hashList}",
+        hashList.join(", ").toUpperCase()
+    );
+    return JSON.parse(pageHead);
+};
+
 const HashPage: React.FC<any> = ({ hash }) => {
     const router: NextRouter = useRouter();
     const { query } = router.query;
@@ -16,7 +31,7 @@ const HashPage: React.FC<any> = ({ hash }) => {
         if (!value) {
             return;
         }
-        const result = getHash(hashFunction, String(value));
+        const result = hashMap.get(hashFunction)(String(value));
         if (result != undefined) {
             setHashResult(result.toString());
         }
@@ -38,17 +53,19 @@ const HashPage: React.FC<any> = ({ hash }) => {
 
     return hashFunction ? (
         <>
-            <PageHead {...pageConfig["hash"][String(hash)]} />
+            <PageHead {...getPageHead(pageConfig["hash"], hash)} />
             <section
                 className="py-5"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}
             >
                 <div className="container">
                     <div className="row justify-content-md-center">
-                        <div className="col-12 col-lg-7 mb-4">
+                        <div className="col-12 col-lg-6 mb-4">
                             <div className="text-light text-center mb-4">
                                 <h1>
-                                    {`${hashFunction.toUpperCase()} Hash Generator`}
+                                    {`${hashFunction
+                                        .replace("sha", "sha-")
+                                        .toUpperCase()} Hash Generator`}
                                 </h1>
                             </div>
                             <div className="position-relative">
@@ -69,29 +86,28 @@ const HashPage: React.FC<any> = ({ hash }) => {
                                         className="form-select"
                                         onChange={(e) => handleChange(e)}
                                     >
-                                        {[
-                                            "md5",
-                                            "sha-1",
-                                            "sha-256",
-                                            "sha-512",
-                                        ].map((value, i) => {
-                                            let selected = false;
-                                            if (
-                                                hashFunction ==
-                                                value.replace("-", "")
-                                            ) {
-                                                selected = true;
+                                        {Array.from(hashMap.keys()).map(
+                                            (hashName, i) => {
+                                                let selected = false;
+                                                if (hashFunction == hashName) {
+                                                    selected = true;
+                                                }
+                                                return (
+                                                    <option
+                                                        selected={selected}
+                                                        key={i}
+                                                        value={hashName}
+                                                    >
+                                                        {hashName
+                                                            .replace(
+                                                                "sha",
+                                                                "sha-"
+                                                            )
+                                                            .toUpperCase()}
+                                                    </option>
+                                                );
                                             }
-                                            return (
-                                                <option
-                                                    selected={selected}
-                                                    key={i}
-                                                    value={value}
-                                                >
-                                                    {value.toUpperCase()}
-                                                </option>
-                                            );
-                                        })}
+                                        )}
                                     </select>
                                 </div>
                             </div>
@@ -129,29 +145,22 @@ const HashPage: React.FC<any> = ({ hash }) => {
     );
 };
 
-const getHash = (
-    func: string,
-    str: string
-): CryptoJS.lib.WordArray | undefined => {
-    switch (func.replace("-", "")) {
-        case "md5":
-            return CryptoJS.MD5(str);
-        case "sha1":
-            return CryptoJS.SHA1(str);
-        case "sha256":
-            return CryptoJS.SHA256(str);
-        case "sha512":
-            return CryptoJS.SHA512(str);
-        default:
-            return undefined;
-    }
-};
-
 export const getServerSideProps = async ({ params }) => {
     const hash = params.hash;
     return {
         props: { hash },
     };
 };
+
+const hashMap = new Map([
+    ["md5", CryptoJS.MD5],
+    ["sha1", CryptoJS.SHA1],
+    ["sha224", CryptoJS.SHA224],
+    ["sha256", CryptoJS.SHA256],
+    ["sha3", CryptoJS.SHA3],
+    ["sha384", CryptoJS.SHA384],
+    ["sha512", CryptoJS.SHA512],
+    ["ripemd160", CryptoJS.RIPEMD160],
+]);
 
 export default HashPage;

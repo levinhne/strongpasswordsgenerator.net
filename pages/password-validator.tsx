@@ -174,7 +174,7 @@ const ValidatorPage: React.FC = () => {
                                                 <input
                                                     className="form-check-input border-0"
                                                     type="checkbox"
-                                                    value=""
+                                                    defaultValue=""
                                                     name={item.name}
                                                     checked={item.checked}
                                                     onChange={(e) =>
