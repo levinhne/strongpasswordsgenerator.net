@@ -22,9 +22,9 @@ const getPageHead = (pageHead: any, hash: string) => {
     if (index > -1) {
         hashList.splice(index, 1);
     }
-    pageHead = pageHead.replaceAll("{hashName}", hash.toUpperCase());
+    pageHead = pageHead.replace(/\{hashName\}/g, hash.toUpperCase());
     pageHead = pageHead.replaceAll(
-        "{hashList}",
+        /\{hashList\}/g,
         hashList.join(", ").toUpperCase()
     );
     return JSON.parse(pageHead);
