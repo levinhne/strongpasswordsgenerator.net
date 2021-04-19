@@ -93,6 +93,7 @@ export const pageConfig = {
             }
         }
     },
+    
     "wordpress_generator": {
         "title": "Wordpress Password Generator to reset your Wordpress Password",
         "description": "Reset your Wordpress Password using Wordpress Password Generator",
