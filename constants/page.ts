@@ -53,7 +53,6 @@ export const pageConfig = {
             }
         }
     },
-    
     "password_validator": {
         "title": "Strong Password Validator",
         "description": "Strong Password Validator simply measures the strength of a password, based on specific indicators to have a secure password such as password length, uppercase, lowercase, number, symbols...",
@@ -93,7 +92,7 @@ export const pageConfig = {
             }
         }
     },
-    
+
     "wordpress_generator": {
         "title": "Wordpress Password Generator to reset your Wordpress Password",
         "description": "Reset your Wordpress Password using Wordpress Password Generator",
