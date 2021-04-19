@@ -2,16 +2,6 @@ import { useRouter, NextRouter } from "next/router";
 import { useEffect } from "react";
 import Link from "next/link";
 
-const pages = [
-    {
-        url: "/password-validator",
-        name: "Password Validator",
-    },
-    {
-        url: "/bcrypt-generator",
-        name: "Bcrypt Generator",
-    },
-];
 const Header: React.FC = () => {
     const router: NextRouter = useRouter();
     useEffect(() => {
