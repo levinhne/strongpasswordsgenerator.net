@@ -26,7 +26,7 @@ const WordpressPage: React.FC = () => {
 
     return (
         <>
-            <PageHead {...pageConfig["bcrypt_generator"]} />
+            <PageHead {...pageConfig["wordpress_generator"]} />
             <section
                 className="py-5"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}

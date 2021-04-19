@@ -92,5 +92,30 @@ export const pageConfig = {
                 "url": "https://strongpasswordsgenerator.net/bcrypt-generator"
             }
         }
+    },
+    "wordpress_generator": {
+        "title": "Wordpress Password Generator to reset your Wordpress Password",
+        "description": "Reset your Wordpress Password using Wordpress Password Generator",
+        "keywords": [
+            "wordpress password generator", 
+            "wordpress password reset", 
+            "wordpress reset password",
+            "wordpress password hash generator",
+            "wordpress password generator online"
+        ],
+        "image": "image.png",
+        "schema": {
+            "@context": "http://schema.org/",
+            "@type": "Website",
+            "name": "Wordpress Password Generator to reset your Wordpress Password",
+            "image": "https://strongpasswordsgenerator.net/image.png",
+            "url": "https://strongpasswordsgenerator.net/wordpress-generator",
+            "description": "Reset your Wordpress Password using Wordpress Password Generator",
+            "isPartOf": {
+                "@type": "Website",
+                "name": "Wordpress Password Generator to reset your Wordpress Password",
+                "url": "https://strongpasswordsgenerator.net/wordpress-generator"
+            }
+        }
     }
 };
