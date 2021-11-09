@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,6 +27,7 @@
             twttr.ready(() => {
                 const params = new URLSearchParams(window.location.search);
                 const e = document.createElement('div');
+                document.body.appendChild(e);
                 if (params.get("type") == "tweet") {
                     twttr.widgets.createTweet(
                         params.get("status"), 
@@ -38,8 +40,6 @@
                             console.log(el);
                         });
                 } else if (params.get("type") == "timeline") {
-                    
-                    document.body.appendChild(e);
                     twttr.widgets.createTimeline(
                         {
                             sourceType: "profile",
