@@ -1,36 +1,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <script>
-            window.twttr = (function (d, s, id) {
-                var js,
-                    fjs = d.getElementsByTagName(s)[0],
-                    t = window.twttr || {};
-                if (d.getElementById(id)) return t;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://platform.twitter.com/widgets.js";
-                fjs.parentNode.insertBefore(js, fjs);
 
-                t._e = [];
-                t.ready = function (f) {
-                    t._e.push(f);
-                };
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        window.twttr = (function (d, s, id) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
 
-                return t;
-            })(document, "script", "twitter-wjs");
-            twttr.ready(() => {
-                const params = new URLSearchParams(window.location.search);
-                const e = document.createElement('div');
-                document.body.appendChild(e);
-                if (params.get("type") == "tweet") {
-                    twttr.widgets.createTweet(
-                        params.get("status"), 
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        })(document, "script", "twitter-wjs");
+        twttr.ready(() => {
+            const params = new URLSearchParams(window.location.search);
+            const e = document.createElement('div');
+            document.body.appendChild(e);
+            if (params.get("type") == "tweet") {
+                const status = params.get("status").split(",");
+                let unique = [...new Set(status)];
+                unique.forEach(s => {
+                     twttr.widgets.createTweet(
+                        s,
                         e,
                         {
                             align: "left",
@@ -39,18 +43,22 @@
                         .then(function (el) {
                             console.log(el);
                         });
-                } else if (params.get("type") == "timeline") {
-                    twttr.widgets.createTimeline(
-                        {
-                            sourceType: "profile",
-                            screenName: params.get("profile"),
-                        },
-                        e
-                    );
-                }
-            });
-        </script>
-    </head>
-    <body>
-    </body>
+                })
+               
+            } else if (params.get("type") == "timeline") {
+                twttr.widgets.createTimeline(
+                    {
+                        sourceType: "profile",
+                        screenName: params.get("profile"),
+                    },
+                    e
+                );
+            }
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
 </html>
