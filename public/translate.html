@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en-US"> 
+  
+<head>
+    <title>Document</title>
+</head>
+  
+<body> 
+    <div id="text"></div> 
+            
+    <script type="text/javascript">
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("text")) {
+            document.getElementById("text").textContent = params.get("text");
+            function googleTranslateElementInit() { 
+              new google.translate.TranslateElement(
+                  {pageLanguage: 'en'}
+              ); 
+          } 
+        }
+        
+    </script> 
+      
+    <script type="text/javascript" src=
+"https://translate.google.com/translate_a/element.js?
+        cb=googleTranslateElementInit">
+    </script> 
+</body> 
+  
+</html> 
