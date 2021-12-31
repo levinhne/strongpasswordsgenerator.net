@@ -7,14 +7,15 @@
   
 <body> 
     <div id="text"></div> 
-            
+   <div id="google_translate_element" style="display: none">
     <script type="text/javascript">
         const params = new URLSearchParams(window.location.search);
         if (params.get("text")) {
             document.getElementById("text").textContent = params.get("text");
             function googleTranslateElementInit() { 
               new google.translate.TranslateElement(
-                  {pageLanguage: 'en'}
+                  {pageLanguage: 'en'},
+                'google_translate_element'
               ); 
           } 
         }
