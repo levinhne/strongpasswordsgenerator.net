@@ -13,16 +13,19 @@
         cb=googleTranslateElementInit">
     </script> 
     <script type="text/javascript">
-        const params = new URLSearchParams(window.location.search);
-        if (params.get("text")) {
-            document.getElementById("text").textContent = params.get("text");
+        
             function googleTranslateElementInit() { 
-              new google.translate.TranslateElement(
-                  {pageLanguage: 'en'},
-                'google_translate_element'
-              ); 
+                const params = new URLSearchParams(window.location.search);
+                if (params.get("text")) {
+                    document.getElementById("text").textContent = params.get("text");
+                    new google.translate.TranslateElement(
+                        {pageLanguage: 'en'},
+                      'google_translate_element'
+                    ); 
+                }
+             
           } 
-        }
+        
         
     </script> 
       
