@@ -98,8 +98,8 @@ const GeneratorPage: React.FC = () => {
                 "// Strong random password generator\n",
                 "// @webiste https://strongpasswordgenerator.com\n",
                 "// @params https://strongpasswordgenerator.com" +
-                    router.asPath +
-                    "\n",
+                router.asPath +
+                "\n",
                 "// @date " + new Date() + "\n",
                 "// ==PasswordGenerator==\n\n",
                 password,
@@ -217,7 +217,7 @@ const GeneratorPage: React.FC = () => {
                                                     type="checkbox"
                                                     value=""
                                                     name={item.name}
-                                                    checked={item.checked}
+                                                    checked={Boolean(item.checked)}
                                                     onChange={(e) =>
                                                         handleChange(e)
                                                     }
@@ -287,7 +287,7 @@ const GeneratorPage: React.FC = () => {
                                         <div
                                             style={{
                                                 filter: generatorOption.blur
-                                                    ? "blur(0.15rem)"
+                                                    ? "blur(0.18rem)"
                                                     : "",
                                             }}
                                         >

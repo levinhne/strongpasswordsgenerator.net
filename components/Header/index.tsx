@@ -38,7 +38,7 @@ const Header: React.FC = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item ">
+                            {/* <li className="nav-item ">
                                 <Link href="/password-validator">
                                     <a
                                         className={
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                                         Password Validator
                                     </a>
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item dropdown">
                                 <a
                                     className="nav-link dropdown-toggle"
@@ -89,10 +89,10 @@ const Header: React.FC = () => {
                                                             <a
                                                                 className={
                                                                     router.asPath ==
-                                                                    `/${hash.replace(
-                                                                        "-",
-                                                                        ""
-                                                                    )}-hash-generator`
+                                                                        `/${hash.replace(
+                                                                            "-",
+                                                                            ""
+                                                                        )}-hash-generator`
                                                                         ? "dropdown-item active"
                                                                         : "dropdown-item"
                                                                 }
@@ -125,12 +125,12 @@ const Header: React.FC = () => {
                                     </a>
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link href="/wordpress-generator">
                                     <a
                                         className={
                                             router.asPath ==
-                                            "/wordpress-generator"
+                                                "/wordpress-generator"
                                                 ? "nav-link active"
                                                 : "nav-link"
                                         }
@@ -139,7 +139,7 @@ const Header: React.FC = () => {
                                         Wordpress Generator
                                     </a>
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
