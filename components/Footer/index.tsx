@@ -7,14 +7,14 @@ const Footer: React.FC = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-3">
-                            <p>
+                            <h5>
                                 <strong>
                                     To ensure security for your passwords and
                                     online accounts, please note that
                                 </strong>
-                            </p>
+                            </h5>
 
-                            <p>
+                            <p className="mt-4">
                                 1. Do not use the same or similar passwords,
                                 security questions, and answers for multiple
                                 important accounts.
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                             </p>
 
                             <p>
-                                p. Do not use your date of birth, postal code,
+                                4. Do not use your date of birth, postal code,
                                 home number, and phone number to set your
                                 password.
                             </p>
