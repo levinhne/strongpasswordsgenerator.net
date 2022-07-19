@@ -38,20 +38,20 @@ const Header: React.FC = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            {/* <li className="nav-item ">
-                                <Link href="/password-validator">
+                            <li className="nav-item ">
+                                <Link href="/">
                                     <a
                                         className={
                                             router.asPath ==
-                                            "/password-validator"
+                                                "/"
                                                 ? "nav-link active"
                                                 : "nav-link"
                                         }
                                     >
-                                        Password Validator
+                                        Password Generator
                                     </a>
                                 </Link>
-                            </li> */}
+                            </li>
                             <li className="nav-item dropdown">
                                 <a
                                     className="nav-link dropdown-toggle"
