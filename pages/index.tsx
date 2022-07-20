@@ -151,7 +151,7 @@ const GeneratorPage: React.FC = () => {
             >
                 <div className="container">
                     <div className="row justify-content-md-center">
-                        <div className="mb-5 text-light text-center">
+                        <div className="mb-4 text-light text-center">
                             <h1>Strong Random Passwords Generator</h1>
                         </div>
                         <div className="col-12 col-lg-6 mb-3">
@@ -207,7 +207,7 @@ const GeneratorPage: React.FC = () => {
                             ].map((item, key) => {
                                 return (
                                     <div className="row mb-3" key={key}>
-                                        <label className="col-sm-5 text-white col-form-label">
+                                        <label className="col-sm-5 text-white">
                                             {item.label}
                                         </label>
                                         <div className="col-sm-7">
@@ -247,7 +247,7 @@ const GeneratorPage: React.FC = () => {
                                 </div>
                             </div>
                             <div className="row">
-                                <label className="col-sm-5 text-white col-form-label">
+                                <label className="col-sm-5 text-white">
                                     Password Blur
                                 </label>
                                 <div className="col-sm-7">
