@@ -38,7 +38,7 @@ const Header: React.FC = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item ">
+                            <li className="nav-item">
                                 <Link href="/">
                                     <a
                                         className={
