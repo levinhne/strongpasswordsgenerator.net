@@ -139,7 +139,7 @@ const HashPage: React.FC<any> = ({ hash }) => {
                                     className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
                                     onClick={handleHash}
                                 >
-                                    Generator
+                                    Generate
                                 </button>
                             </div>
                         </div>

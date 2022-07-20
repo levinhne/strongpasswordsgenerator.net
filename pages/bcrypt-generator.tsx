@@ -89,7 +89,7 @@ const BcryptGeneratorPage: React.FC = () => {
                                         className="btn btn-lg btn-outline-light fw-bold px-3 py-2"
                                         onClick={handleGenerator}
                                     >
-                                        Generator
+                                        Generate
                                     </button>
                                 </div>
                             </div>
