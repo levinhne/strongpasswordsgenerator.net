@@ -62,7 +62,7 @@ const HashPage: React.FC<any> = ({ hash }) => {
         <>
             <PageHead {...getPageHead(pageConfig["hash"], hash)} />
             <section
-                className="py-5"
+                className="py-4"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}
             >
                 <div className="container">
