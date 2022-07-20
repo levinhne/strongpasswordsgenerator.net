@@ -24,12 +24,9 @@ const App = ({ Component, pageProps }: AppProps) => {
             <Component {...pageProps} />
             <div className="text-center py-2">
                 <ins className="adsbygoogle"
-                    style={{ display: "block" }}
+                    style={{ display: "inline-block", width: "728px", height: "90px" }}
                     data-ad-client="ca-pub-9880367516969749"
-                    data-ad-slot="9514926502"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true">
-                </ins>
+                    data-ad-slot="9514926502"></ins>
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
