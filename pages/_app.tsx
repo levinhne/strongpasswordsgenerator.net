@@ -23,7 +23,6 @@ const App = ({ Component, pageProps }: AppProps) => {
             <Header />
             <Component {...pageProps} />
             <div className="text-center py-2">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9880367516969749" crossOrigin="anonymous"></script>
                 <ins className="adsbygoogle"
                     style={{ display: "block" }}
                     data-ad-client="ca-pub-9880367516969749"
