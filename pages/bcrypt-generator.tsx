@@ -36,7 +36,7 @@ const BcryptGeneratorPage: React.FC = () => {
         <>
             <PageHead {...pageConfig["bcrypt_generator"]} />
             <section
-                className="py-4"
+                className="py-5"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}
             >
                 <div className="container">

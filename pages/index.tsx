@@ -146,7 +146,7 @@ const GeneratorPage: React.FC = () => {
         <>
             <PageHead {...pageConfig["home"]} />
             <section
-                className="py-4"
+                className="py-5"
                 style={{ background: "linear-gradient(#614092, #7952b3)" }}
             >
                 <div className="container">

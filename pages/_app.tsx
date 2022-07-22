@@ -22,19 +22,6 @@ const App = ({ Component, pageProps }: AppProps) => {
         <>
             <Header />
             <Component {...pageProps} />
-            <div className="text-center py-2">
-                <ins className="adsbygoogle"
-                    style={{ display: "inline-block", width: "728px", height: "90px" }}
-                    data-ad-client="ca-pub-9880367516969749"
-                    data-ad-slot="9514926502"></ins>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            (adsbygoogle = window.adsbygoogle || []).push({ });
-                        `,
-                    }}
-                />
-            </div>
             <Footer />
         </>
     );
