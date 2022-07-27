@@ -1,11 +1,7 @@
-module.exports = {
-    rewrites() {
-        return [
-            {
-                source: "/:hash-hash-generator",
-                destination: "/hash-generator/:hash",
-            }
-        ];
-    }
-};
-  
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+}
+
+module.exports = nextConfig
