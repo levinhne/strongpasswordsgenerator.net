@@ -1,2 +1,12 @@
 @import "@webpixels/css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+.form-range::-webkit-slider-runnable-track {
+    height: 0.2rem;
+}
+
+.form-range::-webkit-slider-thumb {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-top: -0.55rem;
+}
