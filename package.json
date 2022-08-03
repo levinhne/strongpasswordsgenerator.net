@@ -12,11 +12,14 @@
     "@webpixels/css": "^1.1.93",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
+    "clipboard": "^2.0.11",
+    "generate-password": "^1.7.0",
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/clipboard": "^2.0.7",
     "@types/node": "18.6.1",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",

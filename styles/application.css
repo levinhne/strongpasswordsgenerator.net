@@ -2,7 +2,7 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 .form-range::-webkit-slider-runnable-track {
-    height: 0.2rem;
+    height: 0.25rem;
 }
 
 .form-range::-webkit-slider-thumb {
