@@ -4,8 +4,9 @@ import type { NextPage } from "next";
 import ClipboardJS from "clipboard";
 import Head from "next/head";
 
-const MAX_RANGE: number = 100;
-const MIN_RANGE: number = 4;
+const MIN_LENGTH: number = 4;
+const MAX_LENGTH: number = 100;
+const DEFAULT_LENGTH: number = 16;
 
 enum Options {
   MIXED_CASE = "mixed_case",
@@ -19,10 +20,10 @@ const Home: NextPage = () => {
   const [generateButtonText, setGenerateButtonText] =
     useState<string>("Copy Password");
   const [password, setPassword] = useState<string>("");
-  const [passwordLen, setPasswordLen] = useState<number>(16);
+  const [passwordLen, setPasswordLen] = useState<number>(DEFAULT_LENGTH);
 
   const getRangeCss = (rangeValue: number): string => {
-    const rangePercent = (rangeValue / MAX_RANGE) * 100;
+    const rangePercent: number = (rangeValue / MAX_LENGTH) * 100;
     return `
       .form-range::-webkit-slider-runnable-track {
         height: 0.25rem;
@@ -40,7 +41,7 @@ const Home: NextPage = () => {
 
   const [generatorOption, setGeneratorOption] =
     useState<generator.GenerateOptions>({
-      length: 16,
+      length: DEFAULT_LENGTH,
       symbols: true,
       numbers: true,
       uppercase: true,
@@ -122,9 +123,9 @@ const Home: NextPage = () => {
             <input
               type="range"
               className="form-range"
-              min={MIN_RANGE}
-              max={MAX_RANGE}
-              defaultValue={16}
+              min={MIN_LENGTH}
+              max={MAX_LENGTH}
+              defaultValue={DEFAULT_LENGTH}
               onChange={passwordLengthHandle}
             />
           </div>
@@ -139,6 +140,7 @@ const Home: NextPage = () => {
                   value={password}
                   onFocus={focusHandle}
                   ref={passwordRef}
+                  style={{ height: "4rem" }}
                 />
                 <span
                   className="input-group-text cursor-pointer px-4"
@@ -150,6 +152,20 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="row justify-content-center mt-5">
+            <div className="col-auto">
+              <div className="form-check">
+                <input
+                  className="form-check-input w-5 h-5"
+                  type="checkbox"
+                  name={Options.MIXED_CASE}
+                  checked={
+                    generatorOption.lowercase && generatorOption.uppercase
+                  }
+                  onChange={optionHandle}
+                />
+                <label className="form-check-label ms-2 mt-1">Uppercase</label>
+              </div>
+            </div>
             <div className="col-auto">
               <div className="form-check">
                 <input
